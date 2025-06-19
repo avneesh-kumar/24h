@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "flowbite";
+
+body {
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+}
+
+/* Remove all legacy admin custom backgrounds and colors */
+body.admin-bg, .bg-admin-bg, .bg-admin-sidebar, .bg-admin-hover, .bg-admin-card, .text-admin-red, .text-admin-yellow, .text-admin-green, .text-admin-blue, .bg-admin-red, .bg-admin-yellow, .bg-admin-green, .bg-admin-blue {
+    /* Remove all custom color overrides */
+    background-color: unset !important;
+    color: unset !important;
+}
+
+/* Remove gradients and legacy glass effect, use Flowbite/Tailwind only */
+.glass-effect {
+    @apply bg-white dark:bg-gray-800 border border-red-200 dark:border-gray-700 shadow-lg rounded-xl;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: unset !important;
+    border: unset !important;
+    box-shadow: unset !important;
+}
+
+/* Remove legacy navbar/footer backgrounds and text colors */
+.admin-navbar, .admin-footer {
+    background: unset !important;
+    color: unset !important;
+    border: unset !important;
+    box-shadow: unset !important;
+    text-shadow: unset !important;
+}
+.admin-navbar .sidebar-item a, .admin-navbar .sidebar-item a:hover, .admin-navbar .sidebar-item a:focus, .admin-navbar .sidebar-item i, .admin-navbar .sidebar-item a span, .admin-navbar .sidebar-item a.active, .admin-footer span {
+    color: unset !important;
+    text-shadow: unset !important;
+    background: unset !important;
+}
+
+/* Remove any other custom color classes not from Tailwind/Flowbite */
+.bg-admin-*, .text-admin-*, .border-admin-*, .glass-effect, .admin-navbar, .admin-footer {
+    all: unset;
+}
+
+/* Only use Tailwind/Flowbite classes for admin UI */

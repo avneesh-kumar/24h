@@ -1,0 +1,143 @@
+/* Area Detail Page Custom CSS (no Tailwind) */
+.area-detail-section {
+    background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+    padding: 60px 0 40px 0;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+.area-detail-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.area-detail-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.area-detail-img {
+    flex: 1 1 350px;
+    min-width: 300px;
+    max-width: 480px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(185,28,28,0.13);
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+.area-detail-content {
+    flex: 1 1 350px;
+    min-width: 300px;
+}
+.area-detail-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #b91c1c;
+    margin-bottom: 18px;
+}
+.area-detail-banner-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 18px;
+}
+.area-detail-list {
+    margin-bottom: 28px;
+    padding-left: 22px;
+    color: #333;
+}
+.area-detail-list li {
+    margin-bottom: 8px;
+    font-size: 1.08rem;
+}
+.area-detail-btn {
+    display: inline-block;
+    background: #b91c1c;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(185,28,28,0.10);
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.area-detail-btn:hover {
+    background: #dc2626;
+    box-shadow: 0 4px 16px rgba(185,28,28,0.18);
+}
+.area-detail-box {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    padding: 40px 32px;
+    margin-bottom: 40px;
+}
+.area-detail-box h2 {
+    font-size: 1.5rem;
+    color: #b91c1c;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+.area-detail-prose {
+    color: #222;
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+.area-detail-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.area-detail-feature {
+    background: #fff5f5;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(185,28,28,0.07);
+    flex: 1 1 220px;
+    min-width: 200px;
+    padding: 28px 18px;
+    text-align: center;
+}
+.area-detail-feature .icon {
+    font-size: 2.5rem;
+    color: #b91c1c;
+    margin-bottom: 10px;
+}
+.area-detail-feature .title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+.area-detail-feature .desc {
+    color: #444;
+    font-size: 1rem;
+}
+.area-detail-cta {
+    text-align: center;
+    margin-top: 48px;
+}
+@media (max-width: 900px) {
+    .area-detail-flex {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .area-detail-content, .area-detail-img {
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .area-detail-section {
+        padding: 32px 0 20px 0;
+    }
+    .area-detail-box {
+        padding: 20px 10px;
+    }
+    .area-detail-title {
+        font-size: 1.5rem;
+    }
+    .area-detail-feature {
+        padding: 18px 6px;
+    }
+}

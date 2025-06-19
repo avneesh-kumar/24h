@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>READY 24h Security - Professional Security Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#dc2626',    // Red
+                        'secondary': '#1f2937',  // Dark gray/black
+                        'accent': '#ef4444',     // Lighter red for hover
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom animations */
+        .hero-content {
+            animation: fadeIn 1s ease-in;
+        }
+        .feature-card {
+            animation: slideUp 0.5s ease-out;
+        }
+        .service-card {
+            animation: fadeIn 0.5s ease-in;
+        }
+        .testimonial-card {
+            animation: slideUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="font-poppins">
+    <!-- Header Section -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="https://demo.roilift.com/ready-24h-security/demo2/index2.html">
+                    <img src="./logo.png" alt="READY 24h Security Logo" class="h-12">
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="https://demo.roilift.com/ready-24h-security/demo2/index2.html" class="text-primary font-medium">Home</a>
+                <a href="#services" class="text-secondary hover:text-primary transition-colors">Services</a>
+                <a href="#about" class="text-secondary hover:text-primary transition-colors">About</a>
+                <a href="#industries" class="text-secondary hover:text-primary transition-colors">Industries</a>
+                <a href="#contact" class="text-secondary hover:text-primary transition-colors">Contact</a>
+            </div>
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-accent transition-colors">Get a Quote</a>
+            </div>
+            <div class="md:hidden">
+                <i class="fas fa-bars text-2xl text-secondary"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-20">
+        <div class="relative h-screen">
+            <img src="./images/banner01.jpg" alt="Professional Security Services" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/70"></div>
+        </div>
+        <div class="absolute inset-0 flex items-center">
+            <div class="container mx-auto px-4 text-white">
+                <span class="text-xl font-medium mb-4 block animate-fade-in">Welcome to READY 24h Security</span>
+                <h1 class="text-5xl font-bold mb-6 animate-fade-in">Professional Security Solutions for Your Peace of Mind</h1>
+                <p class="text-xl mb-8 max-w-2xl animate-fade-in">Trusted security services with over 50 years of experience in protecting businesses and individuals across California. Our expert team ensures your safety 24/7.</p>
+                <div class="grid grid-cols-3 gap-8 mb-8">
+                    <div class="flex items-center space-x-4 animate-slide-up">
+                        <i class="fas fa-shield-alt text-3xl text-primary"></i>
+                        <span class="text-lg">Licensed & Insured</span>
+                    </div>
+                    <div class="flex items-center space-x-4 animate-slide-up" style="animation-delay: 0.2s">
+                        <i class="fas fa-clock text-3xl text-primary"></i>
+                        <span class="text-lg">24/7 Service</span>
+                    </div>
+                    <div class="flex items-center space-x-4 animate-slide-up" style="animation-delay: 0.4s">
+                        <i class="fas fa-check-circle text-3xl text-primary"></i>
+                        <span class="text-lg">Expert Team</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-8 mb-8">
+                    <div class="text-center animate-slide-up" style="animation-delay: 0.6s">
+                        <span class="block text-4xl font-bold text-primary">50+</span>
+                        <span class="text-lg">Years Experience</span>
+                    </div>
+                    <div class="text-center animate-slide-up" style="animation-delay: 0.8s">
+                        <span class="block text-4xl font-bold text-primary">1000+</span>
+                        <span class="text-lg">Happy Clients</span>
+                    </div>
+                    <div class="text-center animate-slide-up" style="animation-delay: 1s">
+                        <span class="block text-4xl font-bold text-primary">24/7</span>
+                        <span class="text-lg">Support</span>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#services" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-accent transition-colors flex items-center animate-slide-up" style="animation-delay: 1.2s">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Our Services
+                    </a>
+                    <a href="#contact" class="bg-white text-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors flex items-center animate-slide-up" style="animation-delay: 1.4s">
+                        <i class="fas fa-phone mr-2"></i>
+                        Get a Quote
+                    </a>
+                </div>
+                <div class="mt-8 animate-slide-up" style="animation-delay: 1.6s">
+                    <a href="tel:800-613-5903" class="text-white text-xl hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call Now: 800-613-5903
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Why Choose READY 24h Security?</h2>
+                <p class="text-xl text-secondary">Experience the difference with California's leading security provider</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center animate-slide-up">
+                    <i class="fas fa-shield-alt text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Licensed & Insured</h3>
+                    <p class="text-secondary">All our security personnel are fully licensed, bonded, and insured for your peace of mind.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center animate-slide-up" style="animation-delay: 0.2s">
+                    <i class="fas fa-clock text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">24/7 Availability</h3>
+                    <p class="text-secondary">Round-the-clock security services with rapid response teams available at all times.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center animate-slide-up" style="animation-delay: 0.4s">
+                    <i class="fas fa-user-tie text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Professional Training</h3>
+                    <p class="text-secondary">Our guards undergo rigorous training and continuous professional development.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center animate-slide-up" style="animation-delay: 0.6s">
+                    <i class="fas fa-map-marked-alt text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Statewide Coverage</h3>
+                    <p class="text-secondary">Comprehensive security services available throughout California.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas We Serve Section -->
+    <section id="areas" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Areas We Serve</h2>
+                <p class="text-xl text-secondary">Providing comprehensive security solutions across California</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="relative overflow-hidden rounded-lg shadow-lg animate-slide-up">
+                    <img src="https://images.pexels.com/photos/247763/pexels-photo-247763.jpeg" alt="Los Angeles" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+                    <div class="absolute bottom-0 p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Los Angeles</h3>
+                        <p>Full-service security solutions in LA County</p>
+                    </div>
+                </div>
+                <!-- Repeat for other areas with animation delays -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Security Services</h2>
+                <p class="text-xl text-secondary">Comprehensive security solutions tailored to your needs</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate-fade-in">
+                    <img src="https://images.pexels.com/photos/247763/pexels-photo-247763.jpeg" alt="Armed Security" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <i class="fas fa-shield-alt text-3xl text-primary mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Armed Security</h3>
+                        <p class="text-secondary mb-4">Professional armed security personnel for high-risk situations and valuable asset protection</p>
+                        <a href="#contact" class="text-primary hover:text-accent font-medium">Learn More →</a>
+                    </div>
+                </div>
+                <!-- Repeat for other services with animation delays -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Industries We Serve</h2>
+                <p class="text-xl text-secondary">Specialized security solutions for various industries</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center animate-slide-up">
+                    <i class="fas fa-building text-4xl text-primary mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Commercial</h3>
+                    <p class="text-secondary">Office buildings, retail centers, and business parks</p>
+                </div>
+                <!-- Repeat for other industries with animation delays -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Ready to Secure Your Business?</h2>
+                <p class="text-xl text-secondary">Get a free security consultation from our experts</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 animate-slide-up">
+                    <h3 class="text-xl font-bold mb-4">24/7 Security Guard</h3>
+                    <p class="text-secondary mb-4">Round-the-clock protection for your premises</p>
+                    <a href="#contact" class="text-primary hover:text-accent font-medium">Get Started</a>
+                </div>
+                <!-- Repeat for other CTAs with animation delays -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-secondary">Trusted by businesses across the nation</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 animate-slide-up">
+                    <p class="text-secondary mb-4">"READY 24h Security has provided exceptional security services for our corporate events. Their team is professional and reliable."</p>
+                    <div class="flex items-center space-x-4">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Smith" class="w-12 h-12 rounded-full">
+                        <div>
+                            <h4 class="text-xl font-bold mb-1">John Smith</h4>
+                            <p class="text-gray-400">Event Director, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for other testimonials with animation delays -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="h-[500px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6602.758040352144!2d-118.63224999999998!3d34.162226!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c29e637e39ae45%3A0x3a42dcceae8887f5!2s23241%20Ventura%20Blvd%20%23219%2C%20Woodland%20Hills%2C%20CA%2091364%2C%20USA!5e0!3m2!1sen!2sin!4v1747662269616!5m2!1sen!2sin" class="w-full h-full rounded-lg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
+                    <p class="text-xl text-secondary mb-8">Contact us for a free security consultation</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-phone text-primary text-xl"></i>
+                            <p class="text-lg">800-613-5903</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-envelope text-primary text-xl"></i>
+                            <p class="text-lg">john@r24hs.com</p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-location-dot text-primary text-xl"></i>
+                            <p class="text-lg">23241 Ventura Blvd., Suite 219 Woodland Hills CA 91364</p>
+                        </div>
+                    </div>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="tel" placeholder="Your Phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            <option value="">Select Service</option>
+                            <option value="armed">Armed Security</option>
+                            <option value="unarmed">Unarmed Security</option>
+                            <option value="fire">Fire Watch</option>
+                            <option value="event">Event Security</option>
+                        </select>
+                        <textarea placeholder="Your Message" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary h-32" required></textarea>
+                        <button type="submit" class="w-full bg-primary text-white px-8 py-3 rounded-lg hover:bg-accent transition-colors">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">READY 24h Security</h3>
+                    <p class="text-gray-400 mb-4">Professional security solutions for your peace of mind.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#armed" class="text-gray-400 hover:text-white transition-colors">Armed Security</a></li>
+                        <li><a href="#unarmed" class="text-gray-400 hover:text-white transition-colors">Unarmed Security</a></li>
+                        <li><a href="#fire" class="text-gray-400 hover:text-white transition-colors">Fire Watch</a></li>
+                        <li><a href="#event" class="text-gray-400 hover:text-white transition-colors">Event Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 READY 24h Security. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.fa-bars').addEventListener('click', function() {
+            // Add your mobile menu logic here
+        });
+    </script>
+</body>
+</html> 
