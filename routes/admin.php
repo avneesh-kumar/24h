@@ -34,6 +34,15 @@ Route::group([
         // Login History
         Route::get('/login-history', function () {
             $logins = \App\Models\UserLoginLog::with('user')->orderByDesc('created_at')->paginate(50);
+            $data = collect();
+            foreach($logins as $login) {
+                $data->push([
+                    'date' => $login->created_at,
+                    'user' => $login->user->name,
+                    'ip' => $login->ip_address,
+                ]);
+            }
+            $logins = $data;
             return view('admin.login-history', compact('logins'));
         })->name('login-history');
 

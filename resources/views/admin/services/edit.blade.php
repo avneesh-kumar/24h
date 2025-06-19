@@ -51,6 +51,27 @@
                     <span class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></span>
                 </button>
             </div>
+            <div class="border-t border-red-200 pt-6 mt-6">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">SEO Settings</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" for="meta_title">Meta Title</label>
+                        <input type="text" name="meta_title" id="meta_title" value="{{ old('meta_title', $service->meta_title) }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use title">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2" for="meta_keywords">Meta Keywords</label>
+                        <input type="text" name="meta_keywords" id="meta_keywords" value="{{ old('meta_keywords', $service->meta_keywords) }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Comma separated keywords">
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2" for="meta_description">Meta Description</label>
+                    <textarea name="meta_description" id="meta_description" rows="3" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use description">{{ old('meta_description', $service->meta_description) }}</textarea>
+                </div>
+                <div class="mt-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2" for="canonical_url">Canonical URL</label>
+                    <input type="url" name="canonical_url" id="canonical_url" value="{{ old('canonical_url', $service->canonical_url) }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use default">
+                </div>
+            </div>
             <div class="text-left mt-6">
                 <button type="submit" class="inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200 hover:shadow-lg">
                     Update Service

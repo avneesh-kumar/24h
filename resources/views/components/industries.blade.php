@@ -11,13 +11,12 @@ $industries = Industry::where('active', true)->orderBy('order')->get();
         </div>
         <div class="industries-grid">
             @foreach($industries as $industry)
-            <div class="industry-card">
+            <a href="{{ route('industries.show', $industry->slug) }}" class="industry-card industry-link">
                 <div class="icon">
                     <i class="{{ $industry->icon }}"></i>
                 </div>
                 <h3>{{ $industry->title }}</h3>
-                <p>{{ $industry->description }}</p>
-            </div>
+            </a>
             @endforeach
         </div>
     </div>
@@ -119,5 +118,14 @@ $industries = Industry::where('active', true)->orderBy('order')->get();
     .section-header h2 {
         font-size: 2rem;
     }
+}
+
+.industry-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.industry-link:hover h3 {
+    color: #dc2626;
 }
 </style>

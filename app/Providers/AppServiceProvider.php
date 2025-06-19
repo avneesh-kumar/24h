@@ -63,6 +63,7 @@ class AppServiceProvider extends ServiceProvider
             $integration = app(IntegrationSettingsService::class);
             $advanced = app(AdvancedSettingsService::class);
             $legal = app(LegalSettingsService::class);
+            $footer_services = \App\Models\Service::where('active', true)->orderBy('order')->limit(5)->get();
             
             $view->with([
                 // General/Branding
@@ -87,6 +88,8 @@ class AppServiceProvider extends ServiceProvider
                 'legal_privacy_policy_url' => $legal->privacyPolicyUrl(),
                 'legal_terms_of_service_url' => $legal->termsOfServiceUrl(),
                 'legal_cookie_consent_enabled' => $legal->cookieConsentEnabled(),
+                // Footer services
+                'footer_services' => $footer_services,
             ]);
         });
     }

@@ -18,7 +18,7 @@
 
 <!-- Description Section -->
 <div class="service-area-desc-container">
-    <div class="service-area-desc-header">Why Choose Our {{ $service->title }} Service?</div>
+    <div class="service-area-desc-header">Why Choose Ready 24h Security in {{ $service->title }}?</div>
     <div class="service-area-desc-html">
         {!! $service->description !!}
     </div>
@@ -199,71 +199,48 @@ function toggleFaq(btn) {
 }
 .service-area-faq-header {
     font-size: 1.5rem;
-    color: #1a1a1a;
+    color: #b91c1c;
     font-weight: 700;
-    margin-bottom: 32px;
+    margin-bottom: 18px;
     text-align: center;
 }
 .service-area-faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    margin-top: 18px;
 }
 .faq-item {
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    overflow: hidden;
+    margin-bottom: 18px;
 }
 .faq-question {
+    background: #f3f4f6;
+    border: none;
+    outline: none;
     width: 100%;
     text-align: left;
-    padding: 16px 24px;
-    background: #fff;
-    border: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: #1a1a1a;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
-}
-.faq-question:hover {
-    background: #f8fafc;
-}
-.faq-question::after {
-    content: '+';
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
     color: #b91c1c;
-    transition: transform 0.3s ease;
+    padding: 14px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
 }
-.faq-question.open::after {
-    transform: translateY(-50%) rotate(45deg);
+.faq-question.open, .faq-question:hover {
+    background: #fee2e2;
 }
 .faq-answer {
-    padding: 0 24px;
     max-height: 0;
     overflow: hidden;
+    background: #fff5f5;
+    border-radius: 0 0 8px 8px;
+    padding: 0 18px;
+    color: #23272b;
+    font-size: 1rem;
+    line-height: 1.7;
     transition: max-height 0.3s ease;
-    background: #fff;
-    color: #4a5568;
-    line-height: 1.6;
 }
-@media (max-width: 768px) {
-    .service-area-desc-container,
-    .service-area-faq-container {
-        width: 90%;
-        padding: 24px 16px;
-    }
-    .service-area-banner-title {
-        font-size: 1.8rem;
-    }
-    .service-area-feature {
-        min-width: 100%;
-    }
+.faq-question.open + .faq-answer {
+    padding: 18px;
+    max-height: 300px;
 }
 </style>
 @endsection

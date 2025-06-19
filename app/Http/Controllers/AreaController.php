@@ -13,7 +13,7 @@ class AreaController extends Controller
             ->where('active', true)
             ->firstOrFail();
 
-        return view('areas.index', compact('area'));
+        return view('areas.show', compact('area'));
     }
 
     public function index()

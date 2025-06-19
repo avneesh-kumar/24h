@@ -1,28 +1,26 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="w-full max-w-4xl mx-auto">
-    <div class="bg-admin-card glass-effect border border-red-900/30 shadow-2xl rounded-lg p-8">
-        <div class="text-center mb-8">
-            <img src="{{ asset('./logo.png') }}" alt="Ready 24h security" class="bg-white p-4 mx-auto w-20 h-20 rounded-full shadow-lg mb-4" />
-            <h1 class="text-2xl font-bold text-red-400 mb-2">Login History</h1>
-            <p class="text-red-400 font-medium">Recent admin logins</p>
+<div class="w-full mx-auto">
+    <div class="bg-white border border-red-200 shadow-2xl rounded-lg mb-8">
+        <div class="flex items-center justify-between p-6 border-b border-red-100">
+            <h1 class="text-2xl font-bold text-red-700">Login History</h1>
         </div>
-        <div class="overflow-x-auto">
-            <table class="min-w-full bg-transparent">
+        <div class="overflow-x-auto p-6">
+            <table class="min-w-full divide-y divide-red-200">
                 <thead>
-                    <tr>
-                        <th class="px-4 py-2 text-left text-gray-400">Date</th>
-                        <th class="px-4 py-2 text-left text-gray-400">User</th>
-                        <th class="px-4 py-2 text-left text-gray-400">IP Address</th>
+                    <tr class="bg-red-50">
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-red-700 uppercase tracking-wider">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-red-700 uppercase tracking-wider">User</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-red-700 uppercase tracking-wider">IP Address</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="divide-y divide-red-100">
                     @foreach($logins as $login)
-                        <tr class="border-b border-gray-700 last:border-0">
-                            <td class="px-4 py-2 text-gray-200">{{ $login->date }}</td>
-                            <td class="px-4 py-2 text-gray-200">{{ $login->user }}</td>
-                            <td class="px-4 py-2 text-gray-200">{{ $login->ip }}</td>
+                        <tr>
+                            <td class="px-6 py-4 text-gray-900 whitespace-nowrap">{{ $login->date }}</td>
+                            <td class="px-6 py-4 text-gray-900 whitespace-nowrap">{{ $login->user }}</td>
+                            <td class="px-6 py-4 text-gray-900 whitespace-nowrap">{{ $login->ip }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -30,4 +28,20 @@
         </div>
     </div>
 </div>
+<style>
+.admin-table th {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+}
+.admin-table td {
+    font-size: 0.97rem;
+}
+@media (max-width: 700px) {
+    .admin-table th, .admin-table td {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 0.92rem;
+    }
+}
+</style>
 @endsection

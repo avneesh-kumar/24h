@@ -133,12 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 data: @json($industryData['data']),
                 backgroundColor: [
-                    '#EF4444',
-                    '#3B82F6',
-                    '#F59E0B',
-                    '#10B981',
-                    '#8B5CF6',
-                    '#EC4899'
+                    '#FF0000',
                 ],
                 borderWidth: 0
             }]

@@ -104,9 +104,11 @@ $testimonials = Testimonial::where('active', true)->orderBy('order')->get();
 .rating i {
     font-size: 18px;
     margin-right: 2px;
+    color: #e1e100;
 }
 
 .content {
+    min-height: 200px;
     margin-bottom: 25px;
 }
 

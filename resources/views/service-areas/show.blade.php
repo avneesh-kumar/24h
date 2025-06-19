@@ -9,13 +9,14 @@
 <!-- Banner Section -->
 <div>
     <div class="service-area-banner">
-    <img src="{{ asset('storage/' . $serviceArea->banner) }}" alt="{{ $serviceArea->title }} Security Banner" class="service-area-banner-img">
-    <div class="service-area-banner-title">
-        {{ $serviceArea->banner_title ?? $serviceArea->title }}
+        <img src="{{ asset('storage/' . $serviceArea->banner) }}" alt="{{ $serviceArea->title }} Security Banner" class="service-area-banner-img">
+        <div class="service-area-banner-title">
+            {{ $serviceArea->banner_title ?? $serviceArea->title }}
+        </div>
     </div>
 </div>
 
-<!-- Description Section (centered, max-width like home page) -->
+<!-- Description Section -->
 <div class="service-area-desc-container">
     <div class="service-area-desc-header">Why Choose Ready 24h Security in {{ $serviceArea->title }}?</div>
     <div class="service-area-desc-html">
@@ -44,7 +45,6 @@
     <div class="service-area-cta">
         <a href="/contact" class="area-detail-btn" style="font-size:1.2rem; padding: 18px 40px;">Get Started Today</a>
     </div>
-</div>
 </div>
 
 <div class="service-area-faq-container">
@@ -90,7 +90,6 @@ function toggleFaq(btn) {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    /* margin-top: 120px; */
     max-width: 100vw;
     overflow: hidden;
     height: 450px;
@@ -136,14 +135,6 @@ function toggleFaq(btn) {
     text-align: center;
 }
 .service-area-desc-html {
-    /* font-family: 'Georgia', 'Times New Roman', Times, serif;
-    color: #23272b;
-    font-size: 1rem;
-    line-height: 1.85;
-    letter-spacing: 0.01em;
-    font-weight: 400;
-    margin-bottom: 0;
-    padding: 0; */
     line-height: 1.85;
     color: #23272b;
 }
@@ -167,135 +158,89 @@ function toggleFaq(btn) {
     margin: 0 8px;
 }
 .service-area-feature .icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #b91c1c;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 .service-area-feature .title {
-    font-weight: 600;
     font-size: 1.1rem;
-    margin-bottom: 6px;
-    color: #b91c1c;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
 }
 .service-area-feature .desc {
-    color: #444;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+    line-height: 1.5;
 }
 .service-area-cta {
     text-align: center;
-    margin-top: 32px;
+    margin-top: 2rem;
 }
 .area-detail-btn {
+    display: inline-block;
     background: #b91c1c;
     color: #fff;
-    padding: 12px 24px;
+    padding: 1rem 2rem;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 500;
-    transition: background 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 .area-detail-btn:hover {
-    background: #a11d1d;
+    background: #991b1b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(185,28,28,0.2);
 }
 .service-area-faq-container {
     width: 70%;
-    margin: 40px auto 60px auto;
-    background: #f8f9fa;
-    border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    margin: 40px auto;
     padding: 40px 32px;
 }
 .service-area-faq-header {
     font-size: 1.5rem;
-    color: #23272b;
+    color: #b91c1c;
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
     text-align: center;
-    letter-spacing: 0.01em;
 }
 .service-area-faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    margin-top: 18px;
 }
 .faq-item {
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 10px;
-    background: #fff;
-    border-radius: 8px;
-    margin-bottom: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    margin-bottom: 18px;
 }
 .faq-question {
-    background: none;
+    background: #f3f4f6;
     border: none;
-    color: #23272b;
-    font-size: 1.13rem;
-    font-weight: 600;
+    outline: none;
     width: 100%;
     text-align: left;
-    padding: 0.7rem 0;
-    cursor: pointer;
-    outline: none;
-    transition: color 0.2s, border-left 0.2s;
-    position: relative;
-    border-left: 4px solid transparent;
-}
-.faq-question.open {
-    border-left: 4px solid #b91c1c;
-    background: #f9f6f6;
-}
-.faq-question::after {
-    content: '\25BC';
-    float: right;
-    transition: transform 0.3s, color 0.2s;
-    color: #888;
-}
-.faq-question.open::after {
-    transform: rotate(180deg);
+    font-size: 1.1rem;
+    font-weight: 600;
     color: #b91c1c;
+    padding: 14px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.faq-question.open, .faq-question:hover {
+    background: #fee2e2;
 }
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
-    color: #23272b;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    background: #f6f6f6;
+    background: #fff5f5;
     border-radius: 0 0 8px 8px;
-    margin-top: 0;
-    padding: 0 0.5rem;
+    padding: 0 18px;
+    color: #23272b;
+    font-size: 1rem;
+    line-height: 1.7;
+    transition: max-height 0.3s ease;
 }
 .faq-question.open + .faq-answer {
-    margin-top: 8px;
-    padding: 0.7rem 0.5rem 1rem 0.5rem;
-    border-left: 4px solid #b91c1c;
-}
-@media (max-width: 900px) {
-    .service-area-desc-container {
-        padding: 20px 10px;
-    }
-    .service-area-features {
-        flex-direction: column;
-        gap: 16px;
-    }
-    .service-area-feature {
-        max-width: 100%;
-        margin: 0 0 12px 0;
-    }
-    .service-area-faq-container {
-        padding: 20px 10px;
-    }
-}
-@media (max-width: 700px) {
-    .service-area-banner, .service-area-banner_img {
-        height: 180px;
-    }
-    .service-area-banner-title {
-        font-size: 1.2rem;
-        padding: 0 0.5rem;
-    }
+    padding: 18px;
+    max-height: 300px;
 }
 </style>
 @endsection
