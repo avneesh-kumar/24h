@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\PageBuilderController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -41,6 +43,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::post('/page-builder/save', [PageBuilderController::class, 'save'])->name('page-builder.save');
     Route::get('/page-builder/preview', [PageBuilderController::class, 'preview'])->name('page-builder.preview');
 });
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 require_once __DIR__.'/admin.php';
 require __DIR__.'/settings.php';
