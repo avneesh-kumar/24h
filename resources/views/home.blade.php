@@ -6,7 +6,7 @@
     @include('components.hero')
     @include('components.why-us')
     @if($areas->isNotEmpty())
-        @include('components.area', $areas)
+        @include('components.area', ['areas' => $areas, 'showAll' => true])
     @endif
     @if($services->isNotEmpty())
         @include('components.services', $services)

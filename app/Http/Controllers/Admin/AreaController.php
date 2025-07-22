@@ -32,13 +32,19 @@ class AreaController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:areas,slug',
             'thumbnail' => 'nullable|image|max:2048',
             'banner' => 'nullable|image|max:4096',
             'banner_title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
+            'canonical_url' => 'nullable|url',
             'order' => 'nullable|integer',
             'active' => 'boolean',
         ]);
+        
         if ($request->hasFile('thumbnail')) {
             $data['thumbnail'] = $request->file('thumbnail')->store('areas/thumbnails', 'public');
         }
@@ -78,6 +84,10 @@ class AreaController extends Controller
             'banner' => 'nullable|image|max:4096',
             'banner_title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
+            'canonical_url' => 'nullable|url',
             'order' => 'nullable|integer',
             'active' => 'boolean',
         ]);

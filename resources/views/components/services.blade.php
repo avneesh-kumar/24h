@@ -12,12 +12,16 @@ $services = Service::where('active', true)->orderBy('order')->take(8)->get();
         @foreach($services as $service)
         <div class="service-card">
             @if($service->thumbnail)
-                <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->title }}">
+                <a href="{{ route('services.show', $service->slug) }}" >
+                    <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->title }}">
+                </a>
             @endif
             <i class="fas fa-shield-alt"></i>
-            <h3>{{ $service->title }}</h3>
-            <p>{{ Str::limit($service->description, 120) }}</p>
-            <a href="{{ route('services.show', $service->slug) }}" class="btn btn-outline">Learn More</a>
+            <a href="{{ route('services.show', $service->slug) }}">
+                <h3 style="height: 50px;">{{ $service->title }}</h3>
+            </a>
+            <p>{{ $service->banner_title }}</p>
+            
         </div>
         @endforeach
     </div>

@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
-@section('title', $service->title . ' | Ready 24h Security')
-@section('meta_description', $service->meta_description ?? Str::limit(strip_tags($service->description), 160))
+@php 
+    $seo_meta_title = $service->meta_title ?? $service->title;
+    $seo_meta_description = $service->meta_description ?? Str::limit(strip_tags($service->description), 160);
+@endphp
+
+@section('title', $seo_meta_title)
+@section('meta_description', $seo_meta_description)
+@section('meta_keywords', $service->meta_keywords)
+@section('canonical_url', $service->canonical_url)
 
 @section('content')
 <link rel="stylesheet" href="/css/area-detail.css">

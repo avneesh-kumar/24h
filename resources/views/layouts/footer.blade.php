@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved. <a href="{{ $legal_privacy_policy_url }}">Privacy Policy</a> | <a href="{{ $legal_terms_of_service_url }}">Terms</a></p>
+        <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
     </div>
     <!-- scroll to top button -->
     <button id="scrollToTop" class="scroll-to-top" onclick="scrollToTop()">

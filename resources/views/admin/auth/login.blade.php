@@ -45,6 +45,11 @@
                                 <p class="text-center text-gray-300">Secure login for authorized personnel only</p>
                             </div>
                             <div class="space-y-6 px-6 pb-6">
+                                @if ($errors->has('error'))
+                                    <div class="bg-red-900/20 border border-red-800/30 rounded-lg p-4 mb-4 text-red-300">
+                                        {{ $errors->first('error') }}
+                                    </div>
+                                @endif
                                 <form class="space-y-6" method="post" action="{{ route('admin.login') }}">
                                     @csrf
                                     <div class="space-y-2">

@@ -12,7 +12,10 @@
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="title">Title</label>
                 <input type="text" name="title" id="title" value="{{ old('title') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" required>
             </div>
-
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="slug">Slug</label>
+                <input type="text" name="slug" id="slug" value="{{ old('slug') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" required>
+            </div>
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="icon">Icon (Font Awesome class)</label>
                 <input type="text" name="icon" id="icon" value="{{ old('icon') }}" placeholder="e.g., fas fa-map-marker-alt" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">

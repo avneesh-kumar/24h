@@ -6,11 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
 use App\Models\UserLoginLog;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
-use Illuminate\Support\Carbon;
 
 class LoginController extends Controller
 {
@@ -56,9 +54,10 @@ class LoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
 
-        throw ValidationException::withMessages([
-            'email' => __('auth.failed'),
+        return back()->withErrors([
+            'error' => 'Please check your credentials and try again.',
         ]);
+
     }
 
     /**

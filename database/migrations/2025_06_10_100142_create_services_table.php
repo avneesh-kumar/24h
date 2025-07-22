@@ -15,11 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('thumbnail')->nullable(); // Card image
-            $table->string('banner')->nullable();    // Detail page image
+            $table->string('thumbnail')->nullable();
+            $table->string('banner')->nullable();
             $table->string('banner_title')->nullable();
             $table->text('description')->nullable();
+            $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+            $table->string('canonical_url')->nullable();
             $table->integer('order')->default(0);
             $table->boolean('active')->default(true);
             $table->timestamps();
@@ -29,20 +32,20 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->string('thumbnail')->nullable(); // Card image
-            $table->string('banner')->nullable();    // Detail page image
+            $table->string('thumbnail')->nullable();
+            $table->string('banner')->nullable();
             $table->string('banner_title')->nullable();
             $table->text('description')->nullable();
+            $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+            $table->string('canonical_url')->nullable();
             $table->integer('order')->default(0);
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
 
         Schema::table('services', function (Blueprint $table) {
-            $table->string('meta_title')->nullable()->after('description');
-            $table->text('meta_keywords')->nullable()->after('meta_title');
-            $table->string('canonical_url')->nullable()->after('meta_keywords');
             $table->foreignId('area_id')->nullable()->after('id')->constrained('areas')->nullOnDelete();
         });
     }
@@ -52,6 +55,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('services', function (Blueprint $table) {
+            $table->dropForeign(['area_id']);
+            $table->dropIfExists('area_id');
+        });
+        Schema::dropIfExists('areas');
         Schema::dropIfExists('services');
     }
 };

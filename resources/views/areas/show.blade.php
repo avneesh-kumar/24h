@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
-@section('title', $area->title . ' Security Services | Ready 24h Security')
-@section('meta_description', $area->meta_description ?? Str::limit(strip_tags($area->description), 160))
+@php 
+    $seo_meta_title = $area->meta_title ?? $area->title;
+    $seo_meta_description = $area->meta_description ?? Str::limit(strip_tags($area->description), 160);
+@endphp
+
+@section('title', $seo_meta_title)
+@section('meta_description', $seo_meta_description)
+@section('meta_keywords', $area->meta_keywords)
+@section('canonical_url', $area->canonical_url)
 
 @section('content')
 <link rel="stylesheet" href="/css/area-detail.css">

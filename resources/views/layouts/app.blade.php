@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', $seo_meta_title)</title>
-    <meta name="description" content="{{ $seo_meta_description }}">
+    <meta name="description" content="@yield('meta_description', $seo_meta_description)">
+    
     @if($seo_meta_keywords)
-        <meta name="keywords" content="{{ $seo_meta_keywords }}">
+        <meta name="keywords" content="@yield('meta_keywords', $seo_meta_keywords)">
     @endif
     
     {{-- Open Graph Tags --}}
     <meta property="og:title" content="@yield('title', $seo_meta_title)">
-    <meta property="og:description" content="{{ $seo_meta_description }}">
+    <meta property="og:description" content="@yield('meta_description', $seo_meta_description)">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     @if(!empty($branding_favicon))
@@ -27,7 +28,7 @@
     @endif
     
     @if($seo_canonical_url_mode === 'auto')
-        <link rel="canonical" href="{{ url()->current() }}" />
+        <link rel="canonical" href="@yield('canonical_url', url()->current())">
     @endif
     
     {{-- Structured Data --}}
@@ -37,7 +38,7 @@
         "@type": "LocalBusiness",
         "name": "READY 24h Security",
         "image": "{{ !empty($branding_favicon) ? asset('storage/' . $branding_favicon) : asset('logo.png') }}",
-        "description": "{{ $seo_meta_description }}",
+        "description": @yield('meta_description', $seo_meta_description),
         @if($general->getAddress() && $general->getCity() && $general->getState() && $general->getZipCode())
         "address": {
             "@type": "PostalAddress",
@@ -116,6 +117,7 @@
     @endif
     
     {!! $advanced_custom_head_html ?? '' !!}
+
 </head>
 <body>
     <div class="header-container">
@@ -126,11 +128,21 @@
 
     @include('layouts.footer')
 
-    @if($legal_cookie_consent_enabled)
+    <!-- check cookie exists -->
+    @if(!isset($_COOKIE['cookie_consent']))
         <div id="cookie-consent" style="position:fixed;bottom:0;left:0;width:100%;background:#222;color:#fff;padding:1rem;z-index:9999;text-align:center;">
             This website uses cookies to ensure you get the best experience. <a href="{{ $legal_privacy_policy_url }}" style="color:#ff0000;">Learn more</a>.
-            <button onclick="document.getElementById('cookie-consent').style.display='none'" style="margin-left:1rem;padding:0.5rem 1rem;background:#ff0000;color:#fff;border:none;border-radius:4px;">Got it!</button>
+            <button id="cookie-consent-button" style="margin-left:1rem;padding:0.5rem 1rem;background:#ff0000;color:#fff;border:none;border-radius:4px; cursor:pointer;">Accept</button>
         </div>
+
+        <script>
+            document.getElementById('cookie-consent-button').addEventListener('click', function() {
+                document.getElementById('cookie-consent').style.display = 'none';
+                document.cookie = "cookie_consent=true; path=/; max-age=" + (60 * 60 * 24 * 365);
+                document.getElementById('cookie-consent').style.display = 'none';
+
+            });
+        </script>
     @endif
     
     {!! $advanced_custom_body_end_html ?? '' !!}

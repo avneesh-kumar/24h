@@ -23,13 +23,15 @@
                     </div>
                 </a>
             @endforeach
-            <div class="flip-card-inner">
-                <div class="flip-card-back" style="transform: rotateY(0deg);">
-                    <div class="flip-desc">
-                        <a href="{{ url('/areas') }}" class="view-all-button">View All Areas</a>
+            @if($showAll)
+                <div class="flip-card-inner">
+                    <div class="flip-card-back" style="transform: rotateY(0deg);">
+                        <div class="flip-desc">
+                            <a href="{{ url('/areas') }}" class="view-all-button">View All Areas</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
         @endif
     </div>
 </section>

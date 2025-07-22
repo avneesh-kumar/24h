@@ -13,15 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::create([
-        //     'name' => 'Avneesh Kumar',
-        //     'email' => 'avneesh@roilift.com',
-        //     'password' => bcrypt('admin123'),
-        // ]);
-
         $this->call([
-            // SettingSeeder::class,
+            SettingSeeder::class,
             AreaSeeder::class,
+            ServiceSeeder::class,
+            IndustrySeeder::class,
+            TestimonialSeeder::class,
         ]);
     }
 }
