@@ -34,6 +34,8 @@ class ServiceController extends Controller
             'order' => 'nullable|integer',
             'active' => 'boolean',
         ]);
+
+        $data['active'] = $data['active'] ?? false;
         if ($request->hasFile('thumbnail')) {
             $data['thumbnail'] = $request->file('thumbnail')->store('services/thumbnails', 'public');
         }
@@ -66,6 +68,8 @@ class ServiceController extends Controller
             'order' => 'nullable|integer',
             'active' => 'boolean',
         ]);
+
+        $data['active'] = $data['active'] ?? false;
         if ($request->hasFile('thumbnail')) {
             $data['thumbnail'] = $request->file('thumbnail')->store('services/thumbnails', 'public');
         }
