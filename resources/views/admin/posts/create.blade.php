@@ -33,7 +33,7 @@
 			</div>
 			<div>
 				<label class="block text-sm font-semibold text-gray-700 mb-2" for="content">Content</label>
-				<textarea name="content" id="content" rows="10" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 rich-editor" required>{{ old('content') }}</textarea>
+				<textarea name="content" id="content" rows="10" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 rich-editor">{{ old('content') }}</textarea>
 			</div>
 			<div>
 				<label class="block text-sm font-semibold text-gray-700 mb-2" for="featured_image">Featured Image</label>
@@ -84,9 +84,10 @@
 		</form>
 	</div>
 </div>
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/ay3qm76k852bki848b9z44n7dv1paeu25u8prgmduxjj20id/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Initialize TinyMCE with proper configuration
         tinymce.init({
             selector: 'textarea.rich-editor',
             menubar: false,
@@ -95,7 +96,29 @@
             height: 300,
             skin: 'oxide',
             content_css: 'default',
-            branding: false
+            branding: false,
+            setup: function(editor) {
+                // Ensure the editor is properly initialized before form submission
+                editor.on('init', function() {
+                    // Remove required attribute from textarea when editor is ready
+                    const textarea = editor.getElement();
+                    if (textarea) {
+                        textarea.removeAttribute('required');
+                    }
+                });
+            }
+        });
+
+        // Add form validation
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            const contentEditor = tinymce.get('content');
+            if (contentEditor && contentEditor.getContent().trim() === '') {
+                e.preventDefault();
+                alert('Please enter content for the post.');
+                contentEditor.focus();
+                return false;
+            }
         });
     });
 </script>
