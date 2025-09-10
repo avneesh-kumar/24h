@@ -10,11 +10,11 @@
 <div class="about-main">
     <section class="about-section">
         <h2>Our Mission</h2>
-        <p>At Ready 24h Security, our mission is to provide top-tier security solutions that ensure the safety and peace of mind of our clients. With over 50 years of experience, we are committed to excellence, integrity, and rapid response.</p>
+        <p>Ready 24h Security is a team, with every person in the company a player who is expected and needed to perform to their fullest capacity. Ready 24h Security's objective is to make a fair profit and achieve sales and budgeting goals while, at the same time, remaining committed to quality security service and strengthening the connection between its employees and clients.</p>
     </section>
     <section class="about-section">
         <h2>Who We Are</h2>
-        <p>We are a team of licensed and insured security professionals serving businesses and individuals across California. Our expert team is available 24/7 to protect what matters most to you.</p>
+        <p>Ready 24h Security Services is a local security contract company in Los Angeles, CA. Our corporate headquarters is within the LA area, allowing our owner and top-level managers to be immediately available to address concerns and resolve problems as they occur. We are innovative and aggressive in our attempts to obtain the goals we have defined and are always seeking further knowledge and challenges, making us one of the best <b>security guard companies in Los Angeles</b>.</p>
     </section>
 </div>
 <style>

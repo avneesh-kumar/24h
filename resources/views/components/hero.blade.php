@@ -6,7 +6,7 @@
     <div class="hero-content">
         <span class="hero-subtitle">Welcome to READY 24h Security</span>
         <h1>Professional Security Solutions for Your Peace of Mind</h1>
-        <p>Trusted security services with over 50 years of experience in protecting businesses and individuals across California. Our expert team ensures your safety 24/7.</p>
+        <p>Trusted security services with over 50 years of experience in protecting businesses and individuals across the state, we have established ourselves as one of the best security companies in California. Our expert team ensures your safety 24/7.</p>
         <div class="hero-features">
             <div class="feature">
                 <i class="fas fa-shield-alt" aria-hidden="true"></i>
@@ -46,9 +46,9 @@
             </a>
         </div>
         <div class="hero-contact">
-            <a href="tel:800-613-5903" class="contact-link">
+            <a href="tel:888-581-8424" class="contact-link">
                 <i class="fas fa-phone" aria-hidden="true"></i>
-                <span>Call Now: 800-613-5903</span>
+                <span>Call Now: (888)581-8424</span>
             </a>
         </div>
     </div>

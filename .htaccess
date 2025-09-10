@@ -1,5 +1,35 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On 
+    RewriteEngine On
+
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} ^www\. [NC]
+    RewriteRule ^(.*)$ https://r24hs.com/$1 [L,R=301,NC]
+
     RewriteRule ^$ public/index.php [L]
     RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
 </IfModule>
+RewriteCond %{HTTP_HOST} ^r24hs\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.r24hs\.com$
+RewriteRule ^blogs\/woodland\-hills\-security\-guard\-company\-news\/1256813\-the\-importance\-of\-hiring\-a\-security\-company$ "https\:\/\/r24hs\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^r24hs\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.r24hs\.com$
+RewriteRule ^blogs\/woodland\-hills\-security\-guard\-company\-news\/tagged\/ready\-24h\-security$ "https\:\/\/r24hs\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^r24hs\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.r24hs\.com$
+RewriteRule ^blogs\/woodland\-hills\-security\-guard\-company\-news\/tagged\/innovative\-solutions$ "https\:\/\/r24hs\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^r24hs\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.r24hs\.com$
+RewriteRule ^blogs\/woodland\-hills\-security\-guard\-company\-news\/tagged\/continuous\-protection$ "https\:\/\/r24hs\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^r24hs\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.r24hs\.com$
+RewriteRule ^pages\/services\/los\-angeles\-vehicle\-patrol\-hotel\-parking\-security\-services$ "https\:\/\/r24hs\.com\/services\/security\-patrol\-services" [R=301,L]
+RewriteCond %{HTTP_HOST} ^r24hs\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.r24hs\.com$
+RewriteRule ^pages\/services\/los\-angeles\-event\-security\-services$ "https\:\/\/r24hs\.com\/services\/event\-security\-services" [R=301,L]
+RewriteCond %{HTTP_HOST} ^r24hs\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.r24hs\.com$
+RewriteRule ^services\/specialized\-security\-services\-687f9ff9f00db$ "https\:\/\/r24hs\.com\/services" [R=301,L]
+RewriteCond %{HTTP_HOST} ^r24hs\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.r24hs\.com$
+RewriteRule ^pages\/services$ "https\:\/\/r24hs\.com\/services" [R=301,L]
+
