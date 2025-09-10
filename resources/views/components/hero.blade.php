@@ -46,9 +46,9 @@
             </a>
         </div>
         <div class="hero-contact">
-            <a href="tel:800-613-5903" class="contact-link">
+            <a href="tel:888-581-8424" class="contact-link">
                 <i class="fas fa-phone" aria-hidden="true"></i>
-                <span>Call Now: 800-613-5903</span>
+                <span>Call Now: 888-581-8424</span>
             </a>
         </div>
     </div>

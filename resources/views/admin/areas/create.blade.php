@@ -72,8 +72,19 @@
     </div>
 </div>
 
+<script src="https://cdn.tiny.cloud/1/ay3qm76k852bki848b9z44n7dv1paeu25u8prgmduxjj20id/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        tinymce.init({
+            selector: '#description',
+            menubar: false,
+            plugins: 'link lists code',
+            toolbar: 'undo redo | bold italic underline | bullist numlist | link | code',
+            height: 200,
+            skin: 'oxide',
+            content_css: 'default',
+            branding: false
+        });
         const activeInput = document.getElementById('active');
         const dot = document.querySelector('.dot');
         const switchBg = document.getElementById('switch-bg');
