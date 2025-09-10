@@ -57,7 +57,7 @@
         },
         @endif
         "url": "{{ url('/') }}",
-        "telephone": "800-613-5903",
+        "telephone": "888-581-8424",
         "priceRange": "$$",
         "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",

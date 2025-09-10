@@ -10,7 +10,7 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <p>800-613-5903</p>
+                        <p>888-581-8424</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>

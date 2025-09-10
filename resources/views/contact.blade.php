@@ -12,7 +12,7 @@
         <div class="contact-info-box">
             <h2>Contact Information</h2>
             <p><i class="fas fa-envelope"></i> info@ready24hsecurity.com</p>
-            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-phone"></i> (888)581-8424</p>
             <p><i class="fas fa-map-marker-alt"></i> 123 Main St, Los Angeles, CA</p>
         </div>
         <div class="contact-map-box">
