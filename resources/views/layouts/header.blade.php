@@ -7,10 +7,11 @@
         </div>
         <div class="nav-links" id="main-nav-links">
             <a href="/" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About</a>
             <a href="{{ route('services.index') }}" class="{{ request()->routeIs('services.*') ? 'active' : '' }}">Services</a>
             <a href="{{ route('areas.index') }}" class="{{ request()->routeIs('areas.*') ? 'active' : '' }}">Areas</a>
             <a href="{{ route('industries.index') }}" class="{{ request()->routeIs('industries.*') ? 'active' : '' }}">Industries</a>
-            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+            <a href="{{ route('blog.index') }}" class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">Blog</a>
             <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
         </div>
         <div class="cta-buttons">
@@ -24,10 +25,11 @@
         <button class="mobile-nav-close" onclick="toggleMobileNav()"><i class="fas fa-times"></i></button>
         <nav class="mobile-nav-links">
             <a href="/">Home</a>
+            <a href="{{ route('about') }}">About</a>
             <a href="{{ route('services.index') }}">Services</a>
             <a href="{{ route('areas.index') }}">Areas</a>
             <a href="{{ route('industries.index') }}">Industries</a>
-            <a href="{{ route('about') }}">About</a>
+            <a href="{{ route('blog.index') }}">Blog</a>
             <a href="{{ route('contact') }}">Contact</a>
             <button type="button" class="btn btn-primary w-full mt-4" onclick="openQuoteModal();toggleMobileNav()">Get a Quote</button>
         </nav>

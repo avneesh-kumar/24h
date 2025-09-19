@@ -57,12 +57,12 @@
 		</article>
 
 		<!-- Call to Action -->
-		<div class="cta-section" style="text-align: center; padding: 50px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 20px; margin-bottom: 40px; border: 2px solid #e5e7eb; position: relative;">
+		<div class="blog-cta-section" style="text-align: center; padding: 50px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 20px; margin-bottom: 40px; border: 2px solid #e5e7eb; position: relative; display: block;">
 			<div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #dc2626, #991b1b); border-radius: 20px 20px 0 0;"></div>
 			<h3 style="color: #111; margin-bottom: 15px; font-size: 1.8rem;">Need Security Services?</h3>
 			<p style="color: #4b5563; margin-bottom: 30px; font-size: 1.1rem;">Get in touch with our expert team for a customized security solution</p>
 			<a href="{{ route('contact') }}" style="display: inline-flex; align-items: center; background: linear-gradient(135deg, #dc2626, #991b1b); color: white; padding: 18px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3); border: 2px solid transparent;">
-				Contact Us Today
+				Contact Us Today	
 				<i class="fas fa-arrow-right" style="margin-left: 10px; transition: transform 0.3s ease;"></i>
 			</a>
 		</div>
@@ -121,11 +121,11 @@
 	color: #dc2626 !important;
 }
 
-.cta-section a:hover .fas.fa-arrow-right {
+.blog-cta-section a:hover .fas.fa-arrow-right {
 	transform: translateX(5px);
 }
 
-.cta-section a:hover {
+.blog-cta-section a:hover {
 	transform: translateY(-3px);
 	box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
 }
