@@ -106,15 +106,14 @@
             selector: 'textarea.rich-editor',
             menubar: false,
             plugins: 'link lists code',
-            toolbar: 'undo redo | bold italic underline | bullist numlist | link | code',
+            toolbar: 'undo redo | blocks | bold italic underline | forecolor backcolor | bullist numlist | link | code',
+            block_formats: 'Paragraph=p; Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6',
             height: 300,
             skin: 'oxide',
             content_css: 'default',
             branding: false,
             setup: function(editor) {
-                // Ensure the editor is properly initialized before form submission
                 editor.on('init', function() {
-                    // Remove required attribute from textarea when editor is ready
                     const textarea = editor.getElement();
                     if (textarea) {
                         textarea.removeAttribute('required');

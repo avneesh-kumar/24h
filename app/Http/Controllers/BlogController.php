@@ -8,7 +8,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('status', 'published')->paginate(9);
+        $posts = Post::where('status', 'published')->latest('published_at')->paginate(9);
         return view('blog.index', compact('posts'));
     }
 
@@ -16,7 +16,8 @@ class BlogController extends Controller
     {
         $post = Post::where('slug', $slug)->firstOrFail();
         $post->increment('views');
-        return view('blog.show', compact('post'));
+        $faqs = $post->faqs()->orderBy('sort_order')->get();
+        return view('blog.show', compact('post', 'faqs'));
     }
 }
 

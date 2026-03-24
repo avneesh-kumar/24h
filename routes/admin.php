@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\FaqController;
 
 Route::group([
     'prefix' => 'admin',
@@ -60,6 +61,7 @@ Route::group([
         Route::resource('testimonials', TestimonialController::class);
         Route::resource('menus', MenuController::class);
         Route::resource('posts', PostController::class);
+        Route::resource('faqs', FaqController::class);
     });
 });
 

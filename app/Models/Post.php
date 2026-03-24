@@ -37,6 +37,11 @@ class Post extends Model
         return $this->belongsTo(User::class, 'author_id');
     }
 
+    public function faqs()
+    {
+        return $this->belongsToMany(Faq::class)->orderBy('sort_order');
+    }
+
     public function scopePublished($query)
     {
         return $query->where('status', 'published')->whereNotNull('published_at')->where('published_at', '<=', now());
