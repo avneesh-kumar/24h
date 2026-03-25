@@ -3,6 +3,12 @@
 @section('title', $post->meta_title ?: $post->title)
 @section('meta_description', $post->meta_description ?: Str::limit(strip_tags($post->excerpt ?: $post->content), 160))
 
+@if($post->schema_markup)
+@push('schema')
+<script type="application/ld+json">{!! $post->schema_markup !!}</script>
+@endpush
+@endif
+
 @section('content')
 <div class="blog-detail">
 	<!-- Hero Section -->

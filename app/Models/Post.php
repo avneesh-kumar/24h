@@ -26,6 +26,7 @@ class Post extends Model
         'meta_keywords',
         'og_image',
         'canonical_url',
+        'schema_markup',
     ];
 
     protected $casts = [

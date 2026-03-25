@@ -39,6 +39,10 @@
 							<td class="p-2">{{ $post->published_at ? $post->published_at->format('Y-m-d') : '-' }}</td>
 							<td class="p-2 space-x-2">
 								<a href="{{ route('admin.posts.edit', $post) }}" class="text-red-600">Edit</a>
+								<form action="{{ route('admin.posts.duplicate', $post) }}" method="POST" class="inline">
+									@csrf
+									<button class="text-blue-600">Duplicate</button>
+								</form>
 								<form action="{{ route('admin.posts.destroy', $post) }}" method="POST" class="inline">
 									@csrf @method('DELETE')
 									<button class="text-gray-600" onclick="return confirm('Delete this post?')">Delete</button>

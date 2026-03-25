@@ -145,10 +145,14 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 
 
 <meta name="DC.title" content="READY 24h Security Inc." />
-<meta name="geo.region" content="US-CA" />
-<meta name="geo.placename" content="Los Angeles" />
-<meta name="geo.position" content="34.168436;-118.605838" />
-<meta name="ICBM" content="34.168436, -118.605838" />
+    @hasSection('geotags')
+        @yield('geotags')
+    @else
+        <meta name="geo.region" content="US-CA" />
+        <meta name="geo.placename" content="Los Angeles" />
+        <meta name="geo.position" content="34.168436;-118.605838" />
+        <meta name="ICBM" content="34.168436, -118.605838" />
+    @endif
 
 
     
@@ -192,7 +196,13 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ $integration_facebook_pixel_id }}&ev=PageView&noscript=1"/></noscript>
     @endif
     
+    @if(!empty($advanced_custom_css))
+        <style>{!! $advanced_custom_css !!}</style>
+    @endif
+    
     {!! $advanced_custom_head_html ?? '' !!}
+
+    @stack('schema')
 
 </head>
 <body>
