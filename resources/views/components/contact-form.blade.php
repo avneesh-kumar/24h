@@ -39,3 +39,8 @@
         </div>
     </div>
 </section>
+<style>
+    .contact-item a {
+        color: #b91c1c;
+    }
+</style>
