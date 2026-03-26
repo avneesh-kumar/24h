@@ -74,6 +74,11 @@
 					<label class="block text-sm font-semibold text-gray-700 mb-2" for="canonical_url">Canonical URL</label>
 					<input type="url" name="canonical_url" id="canonical_url" value="{{ old('canonical_url') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use default">
 				</div>
+				<div class="mt-6">
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="schema_markup">Schema Markup (JSON-LD)</label>
+					<textarea name="schema_markup" id="schema_markup" rows="8" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 font-mono text-sm" placeholder='{"@context":"https://schema.org","@type":"Article","headline":"","description":""}'>{{ old('schema_markup') }}</textarea>
+					<p class="text-xs text-gray-500 mt-1">Paste your JSON-LD structured data here. Leave empty to skip.</p>
+				</div>
 			</div>
 
 			<div class="text-left mt-6">
@@ -84,7 +89,7 @@
 		</form>
 	</div>
 </div>
-<script src="https://cdn.tiny.cloud/1/ay3qm76k852bki848b9z44n7dv1paeu25u8prgmduxjj20id/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/boiwr9m4ebm7vrekmvtwhirb19zo6swurmazakih4cp0nfwf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Initialize TinyMCE with proper configuration
@@ -92,15 +97,14 @@
             selector: 'textarea.rich-editor',
             menubar: false,
             plugins: 'link lists code',
-            toolbar: 'undo redo | bold italic underline | bullist numlist | link | code',
+            toolbar: 'undo redo | blocks | bold italic underline | forecolor backcolor | bullist numlist | link | code',
+            block_formats: 'Paragraph=p; Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6',
             height: 300,
             skin: 'oxide',
             content_css: 'default',
             branding: false,
             setup: function(editor) {
-                // Ensure the editor is properly initialized before form submission
                 editor.on('init', function() {
-                    // Remove required attribute from textarea when editor is ready
                     const textarea = editor.getElement();
                     if (textarea) {
                         textarea.removeAttribute('required');

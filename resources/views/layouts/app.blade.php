@@ -36,44 +36,24 @@
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "READY 24h Security",
-        "image": "{{ !empty($branding_favicon) ? asset('storage/' . $branding_favicon) : asset('logo.png') }}",
-        "description": @yield('meta_description', $seo_meta_description),
-        @if($general->getAddress() && $general->getCity() && $general->getState() && $general->getZipCode())
+        "name": "READY 24h Security Inc.",
+        "image": "https://r24hs.com/logo.png",
+        "@id": "",
+        "url": "https://r24hs.com/",
+        "telephone": "800-613-5903",
         "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "{{ $general->getAddress() }}",
-            "addressLocality": "{{ $general->getCity() }}",
-            "addressRegion": "{{ $general->getState() }}",
-            "postalCode": "{{ $general->getZipCode() }}",
-            "addressCountry": "US"
+        "@type": "PostalAddress",
+        "streetAddress": "23241 Ventura Blvd., Suite 219 Woodland Hills",
+        "addressLocality": "California, Los Angeles, Orange County, Riverside County, San Diego County, Ventura County",
+        "postalCode": "91364",
+        "addressCountry": "US"
         },
-        @endif
-        @if($general->getLatitude() && $general->getLongitude())
         "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "{{ $general->getLatitude() }}",
-            "longitude": "{{ $general->getLongitude() }}"
-        },
-        @endif
-        "url": "{{ url('/') }}",
-        "telephone": "888-581-8424",
-        "priceRange": "$$",
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday"
-            ],
-            "opens": "00:00",
-            "closes": "23:59"
+        "@type": "GeoCoordinates",
+        "latitude": 34.16222570000001,
+        "longitude": -118.6322503
         }
-    }
+        }
     </script>
     
     <script type="application/ld+json">
@@ -126,10 +106,14 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 
 
 <meta name="DC.title" content="READY 24h Security Inc." />
-<meta name="geo.region" content="US-CA" />
-<meta name="geo.placename" content="Los Angeles" />
-<meta name="geo.position" content="34.168436;-118.605838" />
-<meta name="ICBM" content="34.168436, -118.605838" />
+    @hasSection('geotags')
+        @yield('geotags')
+    @else
+        <meta name="geo.region" content="US-CA" />
+        <meta name="geo.placename" content="Los Angeles" />
+        <meta name="geo.position" content="34.168436;-118.605838" />
+        <meta name="ICBM" content="34.168436, -118.605838" />
+    @endif
 
 
     
@@ -173,7 +157,13 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ $integration_facebook_pixel_id }}&ev=PageView&noscript=1"/></noscript>
     @endif
     
+    @if(!empty($advanced_custom_css))
+        <style>{!! $advanced_custom_css !!}</style>
+    @endif
+    
     {!! $advanced_custom_head_html ?? '' !!}
+
+    @stack('schema')
 
 </head>
 <body>

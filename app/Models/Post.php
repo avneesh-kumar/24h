@@ -26,6 +26,7 @@ class Post extends Model
         'meta_keywords',
         'og_image',
         'canonical_url',
+        'schema_markup',
     ];
 
     protected $casts = [
@@ -35,6 +36,11 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function faqs()
+    {
+        return $this->belongsToMany(Faq::class)->orderBy('sort_order');
     }
 
     public function scopePublished($query)

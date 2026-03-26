@@ -57,6 +57,7 @@ class SettingSeeder extends Seeder
             // Advanced
             ['key' => 'custom_head_html', 'value' => '', 'type' => 'text', 'group' => 'advanced', 'description' => 'Custom HTML in <head>'],
             ['key' => 'custom_body_end_html', 'value' => '', 'type' => 'text', 'group' => 'advanced', 'description' => 'Custom HTML before </body>'],
+            ['key' => 'custom_css', 'value' => '', 'type' => 'text', 'group' => 'advanced', 'description' => 'Custom CSS'],
             ['key' => 'analytics_code', 'value' => '', 'type' => 'text', 'group' => 'advanced', 'description' => 'Analytics Code'],
             ['key' => 'facebook_pixel_id', 'value' => '', 'type' => 'string', 'group' => 'advanced', 'description' => 'Facebook Pixel ID'],
 

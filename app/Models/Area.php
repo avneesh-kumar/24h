@@ -19,6 +19,7 @@ class Area extends Model
         'meta_description',
         'meta_keywords',
         'canonical_url',
+        'geotags',
         'order',
         'active',
         'icon',

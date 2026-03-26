@@ -3,6 +3,12 @@
 @section('title', $post->meta_title ?: $post->title)
 @section('meta_description', $post->meta_description ?: Str::limit(strip_tags($post->excerpt ?: $post->content), 160))
 
+@if($post->schema_markup)
+@push('schema')
+<script type="application/ld+json">{!! $post->schema_markup !!}</script>
+@endpush
+@endif
+
 @section('content')
 <div class="blog-detail">
 	<!-- Hero Section -->
@@ -55,6 +61,30 @@
 				{!! $post->content !!}
 			</div>
 		</article>
+
+		<!-- FAQ Section -->
+		@if(isset($faqs) && $faqs->isNotEmpty())
+		<div style="background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 40px; border: 2px solid #e5e7eb; position: relative;">
+			<div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #dc2626, #991b1b); border-radius: 20px 20px 0 0;"></div>
+			<h2 style="color: #111; font-size: 1.8rem; font-weight: 700; margin: 0 0 30px 0;">Frequently Asked Questions</h2>
+			<div id="faq-accordion" style="display: flex; flex-direction: column; gap: 12px;">
+				@foreach($faqs as $i => $faq)
+				<div class="faq-item" style="border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
+					<button type="button" onclick="toggleFaq({{ $i }})"
+						style="width:100%; padding: 18px 20px; font-weight: 600; color: #111; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f9fafb; border: none; text-align: left;">
+						<span>{{ $faq->question }}</span>
+						<svg class="faq-chevron" id="chevron-{{ $i }}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-left:12px; transition: transform 0.25s ease;">
+							<polyline points="6 9 12 15 18 9"></polyline>
+						</svg>
+					</button>
+					<div id="faq-body-{{ $i }}" style="display:none; padding: 18px 20px; color: #374151; line-height: 1.7; border-top: 1px solid #e5e7eb;">
+						{{ $faq->answer }}
+					</div>
+				</div>
+				@endforeach
+			</div>
+		</div>
+		@endif
 
 		<!-- Call to Action -->
 		<div class="blog-cta-section" style="text-align: center; padding: 50px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 20px; margin-bottom: 40px; border: 2px solid #e5e7eb; position: relative; display: block;">
@@ -173,6 +203,10 @@
 	border: 2px solid #e5e7eb;
 }
 
+details[open] .faq-chevron { transform: rotate(180deg); }
+details > summary::-webkit-details-marker { display: none; }
+details > summary { list-style: none; }
+
 @media (max-width: 768px) {
 	.blog-hero h1 {
 		font-size: 2rem;
@@ -189,6 +223,23 @@
 	}
 }
 </style>
+<script>
+function toggleFaq(index) {
+    const total = document.querySelectorAll('.faq-item').length;
+    for (let i = 0; i < total; i++) {
+        const body = document.getElementById('faq-body-' + i);
+        const chevron = document.getElementById('chevron-' + i);
+        if (i === index) {
+            const isOpen = body.style.display === 'block';
+            body.style.display = isOpen ? 'none' : 'block';
+            chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        } else {
+            body.style.display = 'none';
+            chevron.style.transform = 'rotate(0deg)';
+        }
+    }
+}
+</script>
 @endsection
 
 
