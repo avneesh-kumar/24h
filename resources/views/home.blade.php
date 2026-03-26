@@ -21,7 +21,7 @@
             <p style="color: #fff;">Our rapid response team is available 24/7</p>
         </div>
         <div class="cta-buttons">
-            <a href="tel:800-613-5903" class="btn btn-secondary">Call Now</a>
+            <a href="tel:888-581-8424" class="btn btn-secondary">Call Now</a>
             <a href="#contact" class="btn btn-secondary">Request Service</a>
         </div>
     </section>

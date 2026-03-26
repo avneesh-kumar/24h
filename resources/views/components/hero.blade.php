@@ -48,7 +48,11 @@
         <div class="hero-contact">
             <a href="tel:888-581-8424" class="contact-link">
                 <i class="fas fa-phone" aria-hidden="true"></i>
+<<<<<<< HEAD
                 <span>Call Now: (888)581-8424</span>
+=======
+                <span>Call Now: 888-581-8424</span>
+>>>>>>> f5083975281cc495d187cc3b2724e6cf8f49a89b
             </a>
         </div>
     </div>

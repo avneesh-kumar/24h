@@ -6,6 +6,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\PageBuilderController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -28,6 +29,10 @@ Route::get('/areas/{slug}', [App\Http\Controllers\AreaController::class, 'show']
 // Industries routes
 Route::get('/industries', [App\Http\Controllers\IndustryController::class, 'index'])->name('industries.index');
 Route::get('/industries/{slug}', [App\Http\Controllers\IndustryController::class, 'show'])->name('industries.show');
+
+// Blog routes
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');

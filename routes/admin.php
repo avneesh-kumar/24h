@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
 
 Route::group([
     'prefix' => 'admin',
@@ -58,6 +59,7 @@ Route::group([
         Route::resource('industries', IndustryController::class);
         Route::resource('testimonials', TestimonialController::class);
         Route::resource('menus', MenuController::class);
+        Route::resource('posts', PostController::class);
     });
 });
 

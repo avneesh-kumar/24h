@@ -18,7 +18,7 @@
     <div class="service-area-banner">
         <img src="{{ asset('storage/' . $area->banner) }}" alt="{{ $area->title }} Security Banner" class="service-area-banner-img">
         <div class="service-area-banner-title">
-            {{ $area->banner_title ?? $area->title }}
+            <h1>{{ $area->banner_title ?? $area->title }}</h1>
         </div>
     </div>
 </div>
@@ -126,6 +126,15 @@ function toggleFaq(btn) {
     padding: 0 2rem;
     letter-spacing: 1px;
 }
+.service-area-banner-title h1 {
+    font-size: inherit;
+    font-weight: inherit;
+    text-shadow: inherit;
+    text-align: inherit;
+    padding: inherit;
+    letter-spacing: inherit;
+}
+
 .service-area-desc-container {
     width: 70%;
     margin: 40px auto;

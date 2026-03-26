@@ -25,6 +25,11 @@ return [
         'icon' => 'fa-comments',
         'route' => 'admin.testimonials.index',
     ],
+    [
+        'label' => 'Blog',
+        'icon' => 'fa-pen-nib',
+        'route' => 'admin.posts.index',
+    ],
     // [
     //     'label' => 'Menus',
     //     'icon' => 'fa-bars',

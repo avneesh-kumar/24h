@@ -36,24 +36,44 @@
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "READY 24h Security Inc.",
-        "image": "https://r24hs.com/logo.png",
-        "@id": "",
-        "url": "https://r24hs.com/",
-        "telephone": "800-613-5903",
+        "name": "READY 24h Security",
+        "image": "{{ !empty($branding_favicon) ? asset('storage/' . $branding_favicon) : asset('logo.png') }}",
+        "description": @yield('meta_description', $seo_meta_description),
+        @if($general->getAddress() && $general->getCity() && $general->getState() && $general->getZipCode())
         "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "23241 Ventura Blvd., Suite 219 Woodland Hills",
-        "addressLocality": "California, Los Angeles, Orange County, Riverside County, San Diego County, Ventura County",
-        "postalCode": "91364",
-        "addressCountry": "US"
+            "@type": "PostalAddress",
+            "streetAddress": "{{ $general->getAddress() }}",
+            "addressLocality": "{{ $general->getCity() }}",
+            "addressRegion": "{{ $general->getState() }}",
+            "postalCode": "{{ $general->getZipCode() }}",
+            "addressCountry": "US"
         },
+        @endif
+        @if($general->getLatitude() && $general->getLongitude())
         "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.16222570000001,
-        "longitude": -118.6322503
+            "@type": "GeoCoordinates",
+            "latitude": "{{ $general->getLatitude() }}",
+            "longitude": "{{ $general->getLongitude() }}"
+        },
+        @endif
+        "url": "{{ url('/') }}",
+        "telephone": "888-581-8424",
+        "priceRange": "$$",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "00:00",
+            "closes": "23:59"
         }
-        }
+    }
     </script>
     
     <script type="application/ld+json">

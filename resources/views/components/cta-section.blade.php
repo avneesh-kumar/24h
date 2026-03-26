@@ -31,7 +31,7 @@
         <h2 class="text-4xl font-bold mb-4 text-white">Need Immediate Security?</h2>
         <p class="text-xl text-gray-300 mb-8">Our rapid response team is available 24/7</p>
         <div class="flex justify-center space-x-4">
-            <a href="tel:800-613-5903" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-accent transition-colors">
+            <a href="tel:888-581-8424" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-accent transition-colors">
                 Call Now
             </a>
             <a href="#contact" class="bg-white text-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">

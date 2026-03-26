@@ -17,6 +17,24 @@
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="slug">Slug</label>
                 <input type="text" name="slug" id="slug" value="{{ old('slug', $area->slug) }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" required>
             </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="thumbnail">Thumbnail (card image)</label>
+                <input type="file" name="thumbnail" id="thumbnail" class="block w-full text-gray-900 border border-red-200 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 file:bg-red-600 file:text-white file:rounded-lg file:border-0 file:px-4 file:py-2 file:mr-4">
+                @if($area->thumbnail)
+                    <img src="{{ asset('storage/' . $area->thumbnail) }}" alt="Current Thumbnail" class="mt-2 rounded w-32 h-auto">
+                @endif
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="banner_title">Banner Title</label>
+                <input type="text" name="banner_title" id="banner_title" value="{{ old('banner_title', $area->banner_title) }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="banner">Banner (detail page image)</label>
+                <input type="file" name="banner" id="banner" class="block w-full text-gray-900 border border-red-200 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 file:bg-red-600 file:text-white file:rounded-lg file:border-0 file:px-4 file:py-2 file:mr-4">
+                @if($area->banner)
+                    <img src="{{ asset('storage/' . $area->banner) }}" alt="Current Banner" class="mt-2 rounded w-48 h-auto">
+                @endif
+            </div>
 
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="icon">Icon (Font Awesome class)</label>
