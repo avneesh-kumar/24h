@@ -11,8 +11,8 @@
     <div class="contact-info-col">
         <div class="contact-info-box">
             <h2>Contact Information</h2>
-            <p><i class="fas fa-envelope"></i> info@ready24hsecurity.com</p>
-            <p><i class="fas fa-phone"></i> (888)581-8424</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@r24hs.com">info@r24hs.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:8885818424">(888)581-8424</a></p>
             <p><i class="fas fa-map-marker-alt"></i> 123 Main St, Los Angeles, CA</p>
         </div>
         <div class="contact-map-box">
@@ -166,6 +166,9 @@
     color: #b91c1c;
     font-weight: 700;
     margin-bottom: 18px;
+}
+.contact-info-box a {
+    color: #b91c1c;
 }
 .contact-info-box p {
     margin-bottom: 14px;

@@ -10,11 +10,11 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <p>(888)581-8424</p>
+                        <p><a href="tel:8885818424">888-581-8424</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <p>info@r24hs.com</p>
+                        <p><a href="mailto:info@r24hs.com">info@r24hs.com</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-location-dot"></i>
@@ -39,3 +39,8 @@
         </div>
     </div>
 </section>
+<style>
+    .contact-item a {
+        color: #b91c1c;
+    }
+</style>
