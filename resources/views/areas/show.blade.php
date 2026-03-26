@@ -10,6 +10,12 @@
 @section('meta_keywords', $area->meta_keywords)
 @section('canonical_url', $area->canonical_url)
 
+@if($area->geotags)
+@section('geotags')
+{!! $area->geotags !!}
+@endsection
+@endif
+
 @section('content')
 <link rel="stylesheet" href="/css/area-detail.css">
 

@@ -73,6 +73,11 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-2" for="canonical_url">Canonical URL</label>
                     <input type="url" name="canonical_url" id="canonical_url" value="{{ old('canonical_url') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use default">
                 </div>
+                <div class="mt-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2" for="geotags">Geo Tags</label>
+                    <textarea name="geotags" id="geotags" rows="4" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 font-mono text-sm" placeholder="Paste raw geo meta tags, e.g.&#10;&lt;meta name=&quot;geo.region&quot; content=&quot;US-CA&quot;&gt;&#10;&lt;meta name=&quot;geo.placename&quot; content=&quot;Los Angeles&quot;&gt;&#10;&lt;meta name=&quot;geo.position&quot; content=&quot;34.0522;-118.2437&quot;&gt;&#10;&lt;meta name=&quot;ICBM&quot; content=&quot;34.0522, -118.2437&quot;&gt;">{{ old('geotags') }}</textarea>
+                    <p class="text-xs text-gray-500 mt-1">These tags will be injected into the &lt;head&gt; on this area's pages.</p>
+                </div>
             </div>
 
             <div class="text-left mt-6">

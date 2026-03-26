@@ -47,6 +47,7 @@ class PostController extends Controller
             'meta_description' => 'nullable|string|max:500',
             'meta_keywords' => 'nullable|string|max:500',
             'canonical_url' => 'nullable|url|max:255',
+            'schema_markup' => 'nullable|string',
         ]);
 
         $slugInput = $validated['slug'] ?? null;
@@ -70,6 +71,7 @@ class PostController extends Controller
             'meta_description' => $validated['meta_description'] ?? null,
             'meta_keywords' => $validated['meta_keywords'] ?? null,
             'canonical_url' => $validated['canonical_url'] ?? null,
+            'schema_markup' => $validated['schema_markup'] ?? null,
         ]);
 
         return redirect()->route('admin.posts.edit', $post)->with('status', 'Post created.');
@@ -95,6 +97,7 @@ class PostController extends Controller
             'meta_description' => 'nullable|string|max:500',
             'meta_keywords' => 'nullable|string|max:500',
             'canonical_url' => 'nullable|url|max:255',
+            'schema_markup' => 'nullable|string',
         ]);
 
         $slugInput = $validated['slug'] ?? null;
@@ -122,9 +125,22 @@ class PostController extends Controller
             'meta_description' => $validated['meta_description'] ?? null,
             'meta_keywords' => $validated['meta_keywords'] ?? null,
             'canonical_url' => $validated['canonical_url'] ?? null,
+            'schema_markup' => $validated['schema_markup'] ?? null,
         ]);
 
         return back()->with('status', 'Post updated.');
+    }
+
+    public function duplicate(Post $post)
+    {
+        $newPost = $post->replicate();
+        $newPost->title = $post->title . ' (Copy)';
+        $newPost->slug = Post::generateUniqueSlug($post->slug . '-copy');
+        $newPost->status = 'draft';
+        $newPost->published_at = null;
+        $newPost->save();
+
+        return redirect()->route('admin.posts.edit', $newPost)->with('status', 'Post duplicated.');
     }
 
     public function destroy(Post $post)

@@ -30,6 +30,11 @@ return [
         'icon' => 'fa-pen-nib',
         'route' => 'admin.posts.index',
     ],
+    [
+        'label' => 'FAQ',
+        'icon' => 'fa-circle-question',
+        'route' => 'admin.faqs.index',
+    ],
     // [
     //     'label' => 'Menus',
     //     'icon' => 'fa-bars',
