@@ -76,6 +76,63 @@
     }
     </script>
     
+    <script type="application/ld+json">
+{
+"@context": "https://schema.org/",
+"@type": "WebSite",
+"name": "READY 24h Security Inc.",
+"url": "https://r24hs.com/",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://r24hs.com/services, https://r24hs.com/services/property-management-security-687f9ff9ed441, https://r24hs.com/services/industrial-facilities-security-687f9ff9edeaf, https://r24hs.com/services/event-security-services, https://r24hs.com/services/corporate-security-solutions-687f9ff9ee7b3, https://r24hs.com/services/retail-security-services-687f9ff9eebc2, https://r24hs.com/services/healthcare-facility-security-687f9ff9eefad, https://r24hs.com/services/educational-institution-security-687f9ff9ef393, https://r24hs.com/services/construction-site-security-687f9ff9ef749, https://r24hs.com/services/residential-community-security-687f9ff9efcd1, https://r24hs.com/services/specialized-security-services-687f9ff9f00db, https://r24hs.com/about, https://r24hs.com/contact, https://r24hs.com/industries, https://r24hs.com/areas{search_term_string}",
+"query-input": "required name=search_term_string"
+}
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Organization",
+"name": "READY 24h Security Inc.",
+"alternateName": "READY 24h Security Inc.",
+"url": "https://r24hs.com/",
+"logo": "https://r24hs.com/logo.png"
+}
+</script>
+
+<link rel="alternate" hreflang="en-US" href="https://r24hs.com/"/>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3JCGC63K6"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-K3JCGC63K6');
+</script>
+
+
+<meta name="google-site-verification" content="YWs5NXhjfXaWQft-1SJ8-rQckJ8HPB2Ryrf4YTQWqEk" />
+
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "sq230eue6x");
+</script>
+
+
+<meta name="DC.title" content="READY 24h Security Inc." />
+<meta name="geo.region" content="US-CA" />
+<meta name="geo.placename" content="Los Angeles" />
+<meta name="geo.position" content="34.168436;-118.605838" />
+<meta name="ICBM" content="34.168436, -118.605838" />
+
+
+    
     {!! $seo_meta_tags !!}
     
     {{-- Favicon from settings --}}

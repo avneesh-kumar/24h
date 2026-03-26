@@ -18,7 +18,7 @@ class AreaController extends Controller
 
     public function index()
     {
-        $areas = Area::orderBy('order')->get();
+        $areas = Area::orderBy('order')->where('active', 1)->get();
         return view('areas.index', compact('areas'));
     }
 }

@@ -10,11 +10,11 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <p>888-581-8424</p>
+                        <p>(888)581-8424</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <p>john@r24hs.com</p>
+                        <p>info@r24hs.com</p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-location-dot"></i>
