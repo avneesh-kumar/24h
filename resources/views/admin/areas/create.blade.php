@@ -84,14 +84,15 @@
     </div>
 </div>
 
-<script src="https://cdn.tiny.cloud/1/ay3qm76k852bki848b9z44n7dv1paeu25u8prgmduxjj20id/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/boiwr9m4ebm7vrekmvtwhirb19zo6swurmazakih4cp0nfwf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         tinymce.init({
             selector: '#description',
             menubar: false,
             plugins: 'link lists code',
-            toolbar: 'undo redo | bold italic underline | bullist numlist | link | code',
+            toolbar: 'undo redo | blocks | bold italic underline | forecolor backcolor | bullist numlist | link | code',
+            block_formats: 'Paragraph=p; Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6',
             height: 200,
             skin: 'oxide',
             content_css: 'default',
