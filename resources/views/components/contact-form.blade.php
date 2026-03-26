@@ -10,11 +10,7 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-<<<<<<< HEAD
                         <p>(888)581-8424</p>
-=======
-                        <p>888-581-8424</p>
->>>>>>> 22440520cbc14d5ffc52ddfa0ec3ccf0d6bd422a
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>

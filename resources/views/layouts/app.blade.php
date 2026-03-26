@@ -36,7 +36,6 @@
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-<<<<<<< HEAD
         "name": "READY 24h Security Inc.",
         "image": "https://r24hs.com/logo.png",
         "@id": "",
@@ -54,44 +53,6 @@
         "latitude": 34.16222570000001,
         "longitude": -118.6322503
         }
-=======
-        "name": "READY 24h Security",
-        "image": "{{ !empty($branding_favicon) ? asset('storage/' . $branding_favicon) : asset('logo.png') }}",
-        "description": @yield('meta_description', $seo_meta_description),
-        @if($general->getAddress() && $general->getCity() && $general->getState() && $general->getZipCode())
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "{{ $general->getAddress() }}",
-            "addressLocality": "{{ $general->getCity() }}",
-            "addressRegion": "{{ $general->getState() }}",
-            "postalCode": "{{ $general->getZipCode() }}",
-            "addressCountry": "US"
-        },
-        @endif
-        @if($general->getLatitude() && $general->getLongitude())
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "{{ $general->getLatitude() }}",
-            "longitude": "{{ $general->getLongitude() }}"
-        },
-        @endif
-        "url": "{{ url('/') }}",
-        "telephone": "888-581-8424",
-        "priceRange": "$$",
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday"
-            ],
-            "opens": "00:00",
-            "closes": "23:59"
->>>>>>> 22440520cbc14d5ffc52ddfa0ec3ccf0d6bd422a
         }
     </script>
     
