@@ -41,6 +41,7 @@ class AreaController extends Controller
             'meta_description' => 'nullable|string',
             'meta_keywords' => 'nullable|string',
             'canonical_url' => 'nullable|url',
+            'geotags' => 'nullable|string',
             'order' => 'nullable|integer',
             'active' => 'boolean',
         ]);
@@ -88,6 +89,7 @@ class AreaController extends Controller
             'meta_description' => 'nullable|string',
             'meta_keywords' => 'nullable|string',
             'canonical_url' => 'nullable|url',
+            'geotags' => 'nullable|string',
             'order' => 'nullable|integer',
             'active' => 'boolean',
         ]);

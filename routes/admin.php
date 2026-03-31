@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\GeotagController;
 
 Route::group([
     'prefix' => 'admin',
@@ -58,6 +61,9 @@ Route::group([
         Route::resource('industries', IndustryController::class);
         Route::resource('testimonials', TestimonialController::class);
         Route::resource('menus', MenuController::class);
+        Route::resource('posts', PostController::class);
+        Route::post('posts/{post}/duplicate', [PostController::class, 'duplicate'])->name('posts.duplicate');
+        Route::resource('faqs', FaqController::class);
     });
 });
 

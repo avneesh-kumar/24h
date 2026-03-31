@@ -36,11 +36,11 @@
             </div>
         </div>
         <div class="hero-buttons">
-            <a href="#services" class="btn btn-primary">
+            <a href="/services" class="btn btn-primary">
                 <i class="fas fa-shield-alt" aria-hidden="true"></i>
                 Our Services
             </a>
-            <a href="#contact" class="btn btn-secondary">
+            <a href="/contact" class="btn btn-secondary">
                 <i class="fas fa-phone" aria-hidden="true"></i>
                 Get a Quote
             </a>
@@ -48,7 +48,7 @@
         <div class="hero-contact">
             <a href="tel:888-581-8424" class="contact-link">
                 <i class="fas fa-phone" aria-hidden="true"></i>
-                <span>Call Now: (888)581-8424</span>
+                <span>Call Now: 888-581-8424</span>
             </a>
         </div>
     </div>

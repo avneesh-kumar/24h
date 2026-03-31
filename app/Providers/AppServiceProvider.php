@@ -84,6 +84,7 @@ class AppServiceProvider extends ServiceProvider
                 // Advanced
                 'advanced_custom_head_html' => $advanced->getCustomHeadHtml(),
                 'advanced_custom_body_end_html' => $advanced->getCustomBodyEndHtml(),
+                'advanced_custom_css' => $advanced->getCustomCss(),
                 // Legal
                 'legal_privacy_policy_url' => $legal->privacyPolicyUrl(),
                 'legal_terms_of_service_url' => $legal->termsOfServiceUrl(),

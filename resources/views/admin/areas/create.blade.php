@@ -6,7 +6,7 @@
         <div class="p-6 border-b border-red-100">
             <h1 class="text-xl font-bold text-red-700">Add Area</h1>
         </div>
-        <form method="POST" action="{{ route('admin.areas.store') }}" class="p-6 space-y-6">
+        <form method="POST" action="{{ route('admin.areas.store') }}" enctype="multipart/form-data" class="p-6 space-y-6">
             @csrf
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="title">Title</label>
@@ -15,6 +15,18 @@
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="slug">Slug</label>
                 <input type="text" name="slug" id="slug" value="{{ old('slug') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" required>
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="thumbnail">Thumbnail (card image)</label>
+                <input type="file" name="thumbnail" id="thumbnail" class="block w-full text-gray-900 border border-red-200 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 file:bg-red-600 file:text-white file:rounded-lg file:border-0 file:px-4 file:py-2 file:mr-4">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="banner_title">Banner Title</label>
+                <input type="text" name="banner_title" id="banner_title" value="{{ old('banner_title') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="banner">Banner (detail page image)</label>
+                <input type="file" name="banner" id="banner" class="block w-full text-gray-900 border border-red-200 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 file:bg-red-600 file:text-white file:rounded-lg file:border-0 file:px-4 file:py-2 file:mr-4">
             </div>
             <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="icon">Icon (Font Awesome class)</label>
@@ -61,6 +73,11 @@
                     <label class="block text-sm font-semibold text-gray-700 mb-2" for="canonical_url">Canonical URL</label>
                     <input type="url" name="canonical_url" id="canonical_url" value="{{ old('canonical_url') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use default">
                 </div>
+                <div class="mt-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2" for="geotags">Geo Tags</label>
+                    <textarea name="geotags" id="geotags" rows="4" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 font-mono text-sm" placeholder="Paste raw geo meta tags, e.g.&#10;&lt;meta name=&quot;geo.region&quot; content=&quot;US-CA&quot;&gt;&#10;&lt;meta name=&quot;geo.placename&quot; content=&quot;Los Angeles&quot;&gt;&#10;&lt;meta name=&quot;geo.position&quot; content=&quot;34.0522;-118.2437&quot;&gt;&#10;&lt;meta name=&quot;ICBM&quot; content=&quot;34.0522, -118.2437&quot;&gt;">{{ old('geotags') }}</textarea>
+                    <p class="text-xs text-gray-500 mt-1">These tags will be injected into the &lt;head&gt; on this area's pages.</p>
+                </div>
             </div>
 
             <div class="text-left mt-6">
@@ -72,14 +89,15 @@
     </div>
 </div>
 
-<script src="https://cdn.tiny.cloud/1/ay3qm76k852bki848b9z44n7dv1paeu25u8prgmduxjj20id/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/boiwr9m4ebm7vrekmvtwhirb19zo6swurmazakih4cp0nfwf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         tinymce.init({
             selector: '#description',
             menubar: false,
             plugins: 'link lists code',
-            toolbar: 'undo redo | bold italic underline | bullist numlist | link | code',
+            toolbar: 'undo redo | blocks | bold italic underline | forecolor backcolor | bullist numlist | link | code',
+            block_formats: 'Paragraph=p; Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6',
             height: 200,
             skin: 'oxide',
             content_css: 'default',

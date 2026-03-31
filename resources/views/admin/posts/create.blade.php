@@ -1,0 +1,131 @@
+@extends('admin.layouts.app')
+
+@section('content')
+<div class="w-full">
+	<div class="bg-white border border-red-200 shadow-2xl rounded-lg mb-8">
+		<div class="p-6 border-b border-red-100">
+			<h1 class="text-xl font-bold text-red-700">Add Post</h1>
+		</div>
+		<form method="POST" action="{{ route('admin.posts.store') }}" enctype="multipart/form-data" class="p-6 space-y-6">
+			@csrf
+			@if ($errors->any())
+				<div class="p-4 border border-red-200 bg-red-50 text-red-700 rounded-lg">
+					<ul class="list-disc ml-6">
+						@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			@endif
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+				<div>
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="title">Title</label>
+					<input type="text" name="title" id="title" value="{{ old('title') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" required>
+				</div>
+				<div>
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="slug">Slug (optional)</label>
+					<input type="text" name="slug" id="slug" value="{{ old('slug') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to auto-generate">
+				</div>
+			</div>
+			<div>
+				<label class="block text-sm font-semibold text-gray-700 mb-2" for="excerpt">Excerpt</label>
+				<textarea name="excerpt" id="excerpt" rows="3" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">{{ old('excerpt') }}</textarea>
+			</div>
+			<div>
+				<label class="block text-sm font-semibold text-gray-700 mb-2" for="content">Content</label>
+				<textarea name="content" id="content" rows="10" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 rich-editor">{{ old('content') }}</textarea>
+			</div>
+			<div>
+				<label class="block text-sm font-semibold text-gray-700 mb-2" for="featured_image">Featured Image</label>
+				<input type="file" name="featured_image" id="featured_image" class="block w-full text-gray-900 border border-red-200 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 file:bg-red-600 file:text-white file:rounded-lg file:border-0 file:px-4 file:py-2 file:mr-4">
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<div>
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="status">Status</label>
+					<select name="status" id="status" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+						@foreach(['draft','published','scheduled','archived'] as $st)
+							<option value="{{ $st }}" @selected(old('status','draft')===$st)>{{ ucfirst($st) }}</option>
+						@endforeach
+					</select>
+				</div>
+				<div>
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="published_at">Publish At</label>
+					<input type="datetime-local" name="published_at" id="published_at" value="{{ old('published_at') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+				</div>
+			</div>
+
+			<div class="border-t border-red-200 pt-6 mt-6">
+				<h2 class="text-lg font-semibold text-gray-900 mb-4">SEO Settings</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<div>
+						<label class="block text-sm font-semibold text-gray-700 mb-2" for="meta_title">Meta Title</label>
+						<input type="text" name="meta_title" id="meta_title" value="{{ old('meta_title') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use title">
+					</div>
+					<div>
+						<label class="block text-sm font-semibold text-gray-700 mb-2" for="meta_keywords">Meta Keywords</label>
+						<input type="text" name="meta_keywords" id="meta_keywords" value="{{ old('meta_keywords') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Comma separated keywords">
+					</div>
+				</div>
+				<div class="mt-6">
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="meta_description">Meta Description</label>
+					<textarea name="meta_description" id="meta_description" rows="3" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use excerpt">{{ old('meta_description') }}</textarea>
+				</div>
+				<div class="mt-6">
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="canonical_url">Canonical URL</label>
+					<input type="url" name="canonical_url" id="canonical_url" value="{{ old('canonical_url') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="Leave empty to use default">
+				</div>
+				<div class="mt-6">
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="schema_markup">Schema Markup (JSON-LD)</label>
+					<textarea name="schema_markup" id="schema_markup" rows="8" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 font-mono text-sm" placeholder='{"@context":"https://schema.org","@type":"Article","headline":"","description":""}'>{{ old('schema_markup') }}</textarea>
+					<p class="text-xs text-gray-500 mt-1">Paste your JSON-LD structured data here. Leave empty to skip.</p>
+				</div>
+			</div>
+
+			<div class="text-left mt-6">
+				<button type="submit" class="inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200 hover:shadow-lg">
+					Create Post
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script src="https://cdn.tiny.cloud/1/boiwr9m4ebm7vrekmvtwhirb19zo6swurmazakih4cp0nfwf/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize TinyMCE with proper configuration
+        tinymce.init({
+            selector: 'textarea.rich-editor',
+            menubar: false,
+            plugins: 'link lists code',
+            toolbar: 'undo redo | blocks | bold italic underline | forecolor backcolor | bullist numlist | link | code',
+            block_formats: 'Paragraph=p; Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6',
+            height: 300,
+            skin: 'oxide',
+            content_css: 'default',
+            branding: false,
+            setup: function(editor) {
+                editor.on('init', function() {
+                    const textarea = editor.getElement();
+                    if (textarea) {
+                        textarea.removeAttribute('required');
+                    }
+                });
+            }
+        });
+
+        // Add form validation
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            const contentEditor = tinymce.get('content');
+            if (contentEditor && contentEditor.getContent().trim() === '') {
+                e.preventDefault();
+                alert('Please enter content for the post.');
+                contentEditor.focus();
+                return false;
+            }
+        });
+    });
+</script>
+@endsection
+
+
