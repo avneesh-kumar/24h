@@ -93,8 +93,29 @@
 
 		<!-- Pagination -->
 		@if($posts->hasPages())
-			<div class="pagination" style="text-align: center; margin: 60px 0;">
-				{{ $posts->links() }}
+			<div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 60px 0; flex-wrap: wrap;">
+				{{-- Previous --}}
+				@if($posts->onFirstPage())
+					<span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #d1d5db; cursor: default; font-size: 1rem;">&#8249;</span>
+				@else
+					<a href="{{ $posts->previousPageUrl() }}" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #374151; text-decoration: none; font-size: 1rem; transition: all 0.2s;" onmouseover="this.style.borderColor='#dc2626';this.style.color='#dc2626'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">&#8249;</a>
+				@endif
+
+				{{-- Page numbers --}}
+				@foreach($posts->getUrlRange(max(1, $posts->currentPage() - 2), min($posts->lastPage(), $posts->currentPage() + 2)) as $page => $url)
+					@if($page == $posts->currentPage())
+						<span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #dc2626, #991b1b); color: white; font-weight: 600; font-size: 0.9rem;">{{ $page }}</span>
+					@else
+						<a href="{{ $url }}" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #374151; text-decoration: none; font-size: 0.9rem; transition: all 0.2s;" onmouseover="this.style.borderColor='#dc2626';this.style.color='#dc2626'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">{{ $page }}</a>
+					@endif
+				@endforeach
+
+				{{-- Next --}}
+				@if($posts->hasMorePages())
+					<a href="{{ $posts->nextPageUrl() }}" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #374151; text-decoration: none; font-size: 1rem; transition: all 0.2s;" onmouseover="this.style.borderColor='#dc2626';this.style.color='#dc2626'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">&#8250;</a>
+				@else
+					<span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #d1d5db; cursor: default; font-size: 1rem;">&#8250;</span>
+				@endif
 			</div>
 		@endif
 	</div>
