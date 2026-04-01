@@ -19,6 +19,7 @@
                     <tr class="border-b">
                         <th class="p-3 text-sm font-semibold text-gray-700">Group</th>
                         <th class="p-3 text-sm font-semibold text-gray-700">Questions</th>
+                        <th class="p-3 text-sm font-semibold text-gray-700">Mapped Posts</th>
                         <th class="p-3 text-sm font-semibold text-gray-700">Actions</th>
                     </tr>
                 </thead>
@@ -31,6 +32,10 @@
                         </td>
                         <td class="p-3 text-sm text-gray-500">
                             {{ $groupFaqs->count() }} {{ Str::plural('question', $groupFaqs->count()) }}
+                        </td>
+                        <td class="p-3 text-sm text-gray-500">
+                            @php $posts = $groupFaqs->flatMap->posts->unique('id')->pluck('title'); @endphp
+                            {{ $posts->isNotEmpty() ? $posts->join(', ') : '—' }}
                         </td>
                         <td class="p-3 space-x-3">
                             <a href="{{ route('admin.faqs.group.edit', $slug) }}" class="text-red-600 text-sm font-medium">Edit</a>
