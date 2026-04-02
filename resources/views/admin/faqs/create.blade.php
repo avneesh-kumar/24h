@@ -18,6 +18,13 @@
                 </div>
             @endif
 
+            {{-- Group Name --}}
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Group Name <span class="text-gray-400 font-normal">(optional — all FAQs below will share this group)</span></label>
+                <input type="text" name="group_name" value="{{ old('group_name') }}" placeholder="e.g. General, Pricing, Technical..."
+                    class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+            </div>
+
             {{-- FAQ entries container --}}
             <div id="faq-entries" class="space-y-4">
                 <div class="faq-entry border border-red-100 rounded-lg p-4 space-y-4 relative">

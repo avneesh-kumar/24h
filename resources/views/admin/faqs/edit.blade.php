@@ -22,6 +22,12 @@
             @endif
 
             <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="group_name">Group Name <span class="text-gray-400 font-normal">(optional)</span></label>
+                <input type="text" name="group_name" id="group_name" value="{{ old('group_name', $faq->group_name) }}" placeholder="e.g. General, Pricing, Technical..."
+                    class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+            </div>
+
+            <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="question">Question</label>
                 <input type="text" name="question" id="question" value="{{ old('question', $faq->question) }}"
                     class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" required>
