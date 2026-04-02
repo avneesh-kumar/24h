@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Faq extends Model
 {
-    protected $fillable = ['question', 'answer', 'sort_order'];
+    protected $fillable = ['question', 'answer', 'sort_order', 'group_name'];
 
     public function posts()
     {

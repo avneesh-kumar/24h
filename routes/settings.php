@@ -9,4 +9,6 @@ Route::middleware(['auth'])
     ->group(function () {
         Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
         Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
+        Route::post('/settings/sitemap/generate', [SettingController::class, 'generateSitemap'])->name('settings.sitemap.generate');
+        Route::post('/settings/robots/save', [SettingController::class, 'saveRobots'])->name('settings.robots.save');
     });

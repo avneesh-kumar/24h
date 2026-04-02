@@ -63,6 +63,9 @@ Route::group([
         Route::resource('menus', MenuController::class);
         Route::resource('posts', PostController::class);
         Route::post('posts/{post}/duplicate', [PostController::class, 'duplicate'])->name('posts.duplicate');
+        Route::get('faqs/group/{group}/edit', [FaqController::class, 'editGroup'])->name('faqs.group.edit');
+        Route::put('faqs/group/{group}', [FaqController::class, 'updateGroup'])->name('faqs.group.update');
+        Route::delete('faqs/group/{group}', [FaqController::class, 'destroyGroup'])->name('faqs.group.destroy');
         Route::resource('faqs', FaqController::class);
     });
 });
