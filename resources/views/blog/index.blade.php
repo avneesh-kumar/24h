@@ -25,7 +25,7 @@
 		@if($posts->count() > 0)
 			@php $featuredPost = $posts->first(); @endphp
 			<div class="featured-post" style="margin-bottom: 60px; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 2px solid #e5e7eb;">
-				<div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 400px;">
+				<div class="featured-post-grid" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 400px;">
 					@if($featuredPost->featured_image)
 						<div style="position: relative; overflow: hidden;">
 							<img src="{{ asset('storage/'.$featuredPost->featured_image) }}" alt="{{ $featuredPost->title }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
@@ -48,7 +48,7 @@
 		@endif
 
 		<!-- Regular Posts Grid -->
-		<div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 60px;">
+		<div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
 			@foreach($posts->skip(1) as $post)
 				<div class="blog-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 2px solid #e5e7eb; position: relative;">
 					<div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #dc2626, #991b1b);"></div>
@@ -156,13 +156,22 @@
 
 @media (max-width: 768px) {
 	.blog-hero h1 {
-		font-size: 2.5rem;
+		font-size: 2rem !important;
 	}
-	
-	.featured-post {
+
+	.featured-post-grid {
 		grid-template-columns: 1fr !important;
+		min-height: unset !important;
 	}
-	
+
+	.featured-post-grid > div:last-child {
+		padding: 24px !important;
+	}
+
+	.featured-post-grid h2 {
+		font-size: 1.5rem !important;
+	}
+
 	.blog-grid {
 		grid-template-columns: 1fr !important;
 	}

@@ -108,6 +108,14 @@ body {
     justify-content: center;
 }
 
+.section-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 /* Hero Section */
 .hero {
     padding: 180px 5% 5rem;
