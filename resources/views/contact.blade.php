@@ -114,6 +114,7 @@
     color: #23272b;
     background: #fff;
     transition: border 0.2s, box-shadow 0.2s;
+    
 }
 .form-group input:focus,
 .form-group textarea:focus {

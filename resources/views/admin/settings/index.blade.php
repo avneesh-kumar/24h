@@ -169,7 +169,7 @@
                 @if(file_exists(public_path('sitemap.xml')))
                     <div>
                         <p class="text-sm text-gray-500 mb-2">Current sitemap preview:</p>
-                        <pre class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-xs text-gray-700 overflow-auto max-h-64">{{ htmlspecialchars(file_get_contents(public_path('sitemap.xml'))) }}</pre>
+                        <pre class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-xs text-gray-700 overflow-auto max-h-64">{{ file_get_contents(public_path('sitemap.xml')) }}</pre>
                     </div>
                 @endif
             </div>
