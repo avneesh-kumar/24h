@@ -20,7 +20,7 @@
             <h2 style="color: #fff;">Need Immediate Security?</h2>
             <p style="color: #fff;">Our rapid response team is available 24/7</p>
         </div>
-        <div class="cta-buttons">
+        <div class="section-cta-buttons">
             <a href="tel:888-581-8424" class="btn btn-secondary">Call Now</a>
             <a href="#contact" class="btn btn-secondary">Request Service</a>
         </div>

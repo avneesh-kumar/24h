@@ -25,7 +25,7 @@
 		@if($posts->count() > 0)
 			@php $featuredPost = $posts->first(); @endphp
 			<div class="featured-post" style="margin-bottom: 60px; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 2px solid #e5e7eb;">
-				<div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 400px;">
+				<div class="featured-post-grid" style="display: grid; grid-template-columns: 1fr 1fr; min-height: 400px;">
 					@if($featuredPost->featured_image)
 						<div style="position: relative; overflow: hidden;">
 							<img src="{{ asset('storage/'.$featuredPost->featured_image) }}" alt="{{ $featuredPost->title }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
@@ -48,7 +48,7 @@
 		@endif
 
 		<!-- Regular Posts Grid -->
-		<div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-bottom: 60px;">
+		<div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
 			@foreach($posts->skip(1) as $post)
 				<div class="blog-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 2px solid #e5e7eb; position: relative;">
 					<div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #dc2626, #991b1b);"></div>
@@ -93,8 +93,29 @@
 
 		<!-- Pagination -->
 		@if($posts->hasPages())
-			<div class="pagination" style="text-align: center; margin: 60px 0;">
-				{{ $posts->links() }}
+			<div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 60px 0; flex-wrap: wrap;">
+				{{-- Previous --}}
+				@if($posts->onFirstPage())
+					<span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #d1d5db; cursor: default; font-size: 1rem;">&#8249;</span>
+				@else
+					<a href="{{ $posts->previousPageUrl() }}" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #374151; text-decoration: none; font-size: 1rem; transition: all 0.2s;" onmouseover="this.style.borderColor='#dc2626';this.style.color='#dc2626'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">&#8249;</a>
+				@endif
+
+				{{-- Page numbers --}}
+				@foreach($posts->getUrlRange(max(1, $posts->currentPage() - 2), min($posts->lastPage(), $posts->currentPage() + 2)) as $page => $url)
+					@if($page == $posts->currentPage())
+						<span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(135deg, #dc2626, #991b1b); color: white; font-weight: 600; font-size: 0.9rem;">{{ $page }}</span>
+					@else
+						<a href="{{ $url }}" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #374151; text-decoration: none; font-size: 0.9rem; transition: all 0.2s;" onmouseover="this.style.borderColor='#dc2626';this.style.color='#dc2626'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">{{ $page }}</a>
+					@endif
+				@endforeach
+
+				{{-- Next --}}
+				@if($posts->hasMorePages())
+					<a href="{{ $posts->nextPageUrl() }}" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #374151; text-decoration: none; font-size: 1rem; transition: all 0.2s;" onmouseover="this.style.borderColor='#dc2626';this.style.color='#dc2626'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">&#8250;</a>
+				@else
+					<span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; border: 1px solid #e5e7eb; color: #d1d5db; cursor: default; font-size: 1rem;">&#8250;</span>
+				@endif
 			</div>
 		@endif
 	</div>
@@ -135,13 +156,22 @@
 
 @media (max-width: 768px) {
 	.blog-hero h1 {
-		font-size: 2.5rem;
+		font-size: 2rem !important;
 	}
-	
-	.featured-post {
+
+	.featured-post-grid {
 		grid-template-columns: 1fr !important;
+		min-height: unset !important;
 	}
-	
+
+	.featured-post-grid > div:last-child {
+		padding: 24px !important;
+	}
+
+	.featured-post-grid h2 {
+		font-size: 1.5rem !important;
+	}
+
 	.blog-grid {
 		grid-template-columns: 1fr !important;
 	}
