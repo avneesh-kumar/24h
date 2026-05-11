@@ -34,6 +34,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Apply timezone from settings globally
+        $generalSettings = app(GeneralSettingsService::class);
+        $timezone = $generalSettings->getTimezone();
+        if ($timezone) {
+            config(['app.timezone' => $timezone]);
+            date_default_timezone_set($timezone);
+        }
+
         // Apply cache driver from settings globally
         $cacheSettings = app(CacheSettingsService::class);
         $driver = $cacheSettings->getCacheDriver();
@@ -63,7 +71,7 @@ class AppServiceProvider extends ServiceProvider
             $integration = app(IntegrationSettingsService::class);
             $advanced = app(AdvancedSettingsService::class);
             $legal = app(LegalSettingsService::class);
-            $footer_services = \App\Models\Service::where('active', true)->orderBy('order')->limit(5)->get();
+            $footer_services = \App\Models\Service::where('active', true)->orderBy('order', 'asc')->limit(5)->get();
             
             $view->with([
                 // General/Branding

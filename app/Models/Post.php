@@ -19,6 +19,7 @@ class Post extends Model
         'featured_image',
         'status',
         'published_at',
+        'scheduled_at',
         'read_time',
         'views',
         'meta_title',
@@ -29,8 +30,11 @@ class Post extends Model
         'schema_markup',
     ];
 
+    // CUSTOM: Not casting to datetime since we're storing in app timezone, not UTC
+    // Laravel's datetime cast expects UTC and will cause timezone conversion issues
     protected $casts = [
-        'published_at' => 'datetime',
+        // 'published_at' => 'datetime',  // Removed
+        // 'scheduled_at' => 'datetime',  // Removed
     ];
 
     public function author()
@@ -45,7 +49,17 @@ class Post extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('status', 'published')->whereNotNull('published_at')->where('published_at', '<=', now());
+        $currentTimeInAppTz = current_time_in_app_timezone();
+        
+        return $query->where('status', 'published')
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', $currentTimeInAppTz);
+    }
+
+    public function scopeScheduled($query)
+    {
+        return $query->where('status', 'scheduled')
+            ->whereNotNull('scheduled_at');
     }
 
     public function scopeVisible($query)

@@ -27,7 +27,7 @@
 						<tr class="border-b">
 							<th class="p-2">Title</th>
 							<th class="p-2">Status</th>
-							<th class="p-2">Published</th>
+							<th class="p-2">Scheduled / Published</th>
 							<th class="p-2">Actions</th>
 						</tr>
 					</thead>
@@ -35,8 +35,25 @@
 					@forelse($posts as $post)
 						<tr class="border-b">
 							<td class="p-2">{{ $post->title }}</td>
-							<td class="p-2">{{ ucfirst($post->status) }}</td>
-							<td class="p-2">{{ $post->published_at ? $post->published_at->format('Y-m-d') : '-' }}</td>
+							<td class="p-2">
+								<span class="px-2 py-1 rounded text-xs font-semibold
+									@if($post->status === 'published') bg-green-100 text-green-800
+									@elseif($post->status === 'scheduled') bg-blue-100 text-blue-800
+									@elseif($post->status === 'draft') bg-gray-100 text-gray-800
+									@else bg-yellow-100 text-yellow-800
+									@endif">
+									{{ ucfirst($post->status) }}
+								</span>
+							</td>
+							<td class="p-2">
+								@if($post->status === 'scheduled' && $post->scheduled_at)
+									<span class="text-blue-600">{{ \Carbon\Carbon::parse($post->scheduled_at)->format('Y-m-d H:i') }}</span>
+								@elseif($post->published_at)
+									{{ \Carbon\Carbon::parse($post->published_at)->format('Y-m-d H:i') }}
+								@else
+									-
+								@endif
+							</td>
 							<td class="p-2 space-x-2">
 								<a href="{{ route('admin.posts.edit', $post) }}" class="text-red-600">Edit</a>
 								<form action="{{ route('admin.posts.duplicate', $post) }}" method="POST" class="inline">

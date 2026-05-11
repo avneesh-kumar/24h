@@ -8,13 +8,21 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('status', 'published')->latest('published_at')->paginate(9);
+        // Show only published posts with published_at set
+        $posts = Post::where('status', 'published')
+            ->whereNotNull('published_at')
+            ->latest('published_at')
+            ->paginate(9);
         return view('blog.index', compact('posts'));
     }
 
     public function show(string $slug)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
+        // Show only published posts with published_at set
+        $post = Post::where('slug', $slug)
+            ->where('status', 'published')
+            ->whereNotNull('published_at')
+            ->firstOrFail();
         $post->increment('views');
         $faqs = $post->faqs()->orderBy('sort_order')->get();
         return view('blog.show', compact('post', 'faqs'));
