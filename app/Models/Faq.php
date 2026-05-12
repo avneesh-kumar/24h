@@ -17,4 +17,9 @@ class Faq extends Model
     {
         return $this->belongsToMany(Area::class);
     }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }

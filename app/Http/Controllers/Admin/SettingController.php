@@ -81,7 +81,8 @@ class SettingController extends Controller
             $urls[] = ['loc' => $baseUrl . '/services/' . $item->slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'lastmod' => $item->updated_at->toIso8601String()];
         }
         foreach (Area::where('active', true)->get() as $item) {
-            $urls[] = ['loc' => $baseUrl . '/areas/' . $item->slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'lastmod' => $item->updated_at->toIso8601String()];
+            $url = $item->custom_url ? $item->custom_url : $baseUrl . '/areas/' . $item->slug;
+            $urls[] = ['loc' => $url, 'priority' => '0.7', 'changefreq' => 'weekly', 'lastmod' => $item->updated_at->toIso8601String()];
         }
         foreach (Industry::where('active', true)->get() as $item) {
             $urls[] = ['loc' => $baseUrl . '/industries/' . $item->slug, 'priority' => '0.7', 'changefreq' => 'weekly', 'lastmod' => $item->updated_at->toIso8601String()];

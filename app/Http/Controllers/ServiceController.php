@@ -20,6 +20,9 @@ class ServiceController extends Controller
     {
         $service = Service::where('slug', $slug)
             ->where('active', true)
+            ->with(['faqs' => function($query) {
+                $query->orderBy('sort_order')->orderBy('id');
+            }])
             ->firstOrFail();
         
         return view('services.show', compact('service'));

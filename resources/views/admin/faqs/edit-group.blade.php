@@ -99,6 +99,24 @@
                 </div>
             </div>
 
+            {{-- Map to services --}}
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Map to Services (optional)</label>
+                <p class="text-xs text-gray-400 mb-2">Applied to all questions in this group.</p>
+                <div class="border border-red-200 rounded-lg p-4 max-h-60 overflow-y-auto space-y-2">
+                    @forelse($services as $service)
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" name="service_ids[]" value="{{ $service->id }}"
+                                {{ in_array($service->id, old('service_ids', $selectedServiceIds)) ? 'checked' : '' }}
+                                class="rounded border-red-300 text-red-600 focus:ring-red-500">
+                            <span class="text-sm text-gray-700">{{ $service->title }}</span>
+                        </label>
+                    @empty
+                        <p class="text-sm text-gray-500">No services available.</p>
+                    @endforelse
+                </div>
+            </div>
+
             <div class="flex items-center gap-4">
                 <button type="submit" class="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200">
                     Save Group
