@@ -11,6 +11,7 @@ class Area extends Model
     protected $fillable = [
         'title',
         'slug',
+        'custom_url',
         'thumbnail',
         'banner',
         'banner_title',
