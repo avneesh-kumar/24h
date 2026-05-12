@@ -40,6 +40,11 @@ class Area extends Model
         return $this->hasMany(Service::class);
     }
 
+    public function faqs()
+    {
+        return $this->belongsToMany(Faq::class)->orderBy('sort_order')->orderBy('id');
+    }
+
     public static function boot()
     {
         parent::boot();

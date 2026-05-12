@@ -12,4 +12,9 @@ class Faq extends Model
     {
         return $this->belongsToMany(Post::class);
     }
+
+    public function areas()
+    {
+        return $this->belongsToMany(Area::class);
+    }
 }

@@ -11,6 +11,9 @@ class AreaController extends Controller
     {
         $area = Area::where('slug', $slug)
             ->where('active', true)
+            ->with(['faqs' => function($query) {
+                $query->orderBy('sort_order')->orderBy('id');
+            }])
             ->firstOrFail();
 
         return view('areas.show', compact('area'));
