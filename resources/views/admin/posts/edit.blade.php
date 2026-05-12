@@ -64,7 +64,10 @@
 				</div>
 				<div>
 					<label class="block text-sm font-semibold text-gray-700 mb-2" for="published_at">Publish At</label>
-					<input type="datetime-local" name="published_at" id="published_at" value="{{ old('published_at', optional($post->published_at)->format('Y-m-d\TH:i')) }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+					<input type="datetime-local" name="published_at" id="published_at" 
+						value="{{ old('published_at', $post->status === 'scheduled' && $post->scheduled_at ? \Carbon\Carbon::parse($post->scheduled_at)->format('Y-m-d\TH:i') : ($post->published_at ? \Carbon\Carbon::parse($post->published_at)->format('Y-m-d\TH:i') : '')) }}" 
+						class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+					<p class="text-xs text-gray-500 mt-1">Time in {{ app_timezone() }} timezone</p>
 				</div>
 			</div>
 

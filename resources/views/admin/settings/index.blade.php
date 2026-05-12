@@ -90,7 +90,8 @@
                                                             @endforeach
                                                         </select>
                                                         @if($key === 'timezone')
-                                                            <p class="mt-1 text-sm text-gray-500">Current server timezone: {{ date_default_timezone_get() }}</p>
+                                                            <p class="mt-1 text-sm text-gray-500">Current application timezone: {{ app_timezone() }}</p>
+                                                            {{-- <p class="mt-1 text-sm text-blue-600 font-medium">⚠️ After changing timezone, clear cache and restart queue workers for scheduled posts to work correctly.</p> --}}
                                                         @endif
                                                     @elseif($key === 'site_logo')
                                                         <div class="space-y-2">
