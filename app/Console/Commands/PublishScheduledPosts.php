@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Post;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class PublishScheduledPosts extends Command
 {
@@ -12,8 +13,9 @@ class PublishScheduledPosts extends Command
 
     public function handle()
     {
-        // Compare using app timezone from database settings
+        try {        // Compare using app timezone from database settings
         $currentTimeInAppTz = current_time_in_app_timezone();
+        $this->info("timezone $currentTimeInAppTz");
         
         // Find posts that are scheduled and whose scheduled_at time has passed
         $posts = Post::where('status', 'scheduled')
@@ -23,6 +25,7 @@ class PublishScheduledPosts extends Command
 
         $count = 0;
         foreach ($posts as $post) {
+            // $this->info("post {$post}");
             $post->update([
                 'status' => 'published',
                 'published_at' => $currentTimeInAppTz, // Set actual publish time in app timezone
@@ -34,5 +37,9 @@ class PublishScheduledPosts extends Command
         $this->info("Published {$count} scheduled post(s).");
         $this->info("Timezone: " . app_timezone());
         return 0;
+        } catch (\Exception $ex) {
+            Log::error('Failed to post blog: ' . $ex->getMessage());
+            return 0;
+        }
     }
 }
