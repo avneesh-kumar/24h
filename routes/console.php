@@ -9,4 +9,6 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 
 // Schedule automatic publishing of scheduled posts every minute
-Schedule::command('posts:publish-scheduled')->everyMinute();
+Schedule::command('posts:publish-scheduled --batch-size=100')->everyMinute()->withoutOverlapping()
+    ->onOneServer()
+    ->runInBackground();
