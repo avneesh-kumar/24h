@@ -17,6 +17,11 @@
                 <input type="text" name="slug" id="slug" value="{{ old('slug') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" required>
             </div>
             <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" for="custom_url">Custom URL (Optional)</label>
+                <input type="url" name="custom_url" id="custom_url" value="{{ old('custom_url') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500" placeholder="https://example.com/custom-page">
+                <p class="text-xs text-gray-500 mt-1">If provided, clicking this area will redirect to this URL instead of the area detail page.</p>
+            </div>
+            <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-2" for="thumbnail">Thumbnail (card image)</label>
                 <input type="file" name="thumbnail" id="thumbnail" class="block w-full text-gray-900 border border-red-200 rounded-lg px-4 py-2 bg-white focus:ring-2 focus:ring-red-500 focus:border-red-500 file:bg-red-600 file:text-white file:rounded-lg file:border-0 file:px-4 file:py-2 file:mr-4">
             </div>

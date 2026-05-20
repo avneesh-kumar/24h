@@ -85,3 +85,23 @@ php artisan serve
 - Or use your preferred web server (Apache, Nginx, etc.)
 
 ---
+
+
+
+# Update for production (Scheduled post)
+
+## 1. Run
+```bash
+php artisan migrate
+```
+
+
+## 2. for cron job
+
+```bash
+crontab -e
+```
+
+```bash
+* * * * * cd /path/to/your/project && php artisan posts:publish-scheduled >> /dev/null 2>&1
+```

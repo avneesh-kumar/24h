@@ -63,22 +63,31 @@
 <div class="service-area-faq-container">
     <div class="service-area-faq-header">Frequently Asked Questions</div>
     <div class="service-area-faq-list">
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">What types of security services do you offer in {{ $area->title }}?</button>
-            <div class="faq-answer">We provide armed and unarmed guards, mobile patrol, event security, commercial and residential protection, and custom security plans tailored to your needs.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">Are your security guards licensed and insured?</button>
-            <div class="faq-answer">Yes, all our guards are fully licensed, insured, and undergo thorough background checks and training.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">How quickly can you deploy security personnel?</button>
-            <div class="faq-answer">We offer rapid response and can often deploy guards within hours, depending on your location and requirements.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">Can I get a custom security plan for my business or event?</button>
-            <div class="faq-answer">Absolutely! We work with you to assess your needs and create a tailored security solution for your property or event.</div>
-        </div>
+        @if($area->faqs->isNotEmpty())
+            @foreach($area->faqs as $faq)
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">{{ $faq->question }}</button>
+                    <div class="faq-answer">{!! nl2br(e($faq->answer)) !!}</div>
+                </div>
+            @endforeach
+        @else
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">What types of security services do you offer in {{ $area->title }}?</button>
+                <div class="faq-answer">We provide armed and unarmed guards, mobile patrol, event security, commercial and residential protection, and custom security plans tailored to your needs.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Are your security guards licensed and insured?</button>
+                <div class="faq-answer">Yes, all our guards are fully licensed, insured, and undergo thorough background checks and training.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">How quickly can you deploy security personnel?</button>
+                <div class="faq-answer">We offer rapid response and can often deploy guards within hours, depending on your location and requirements.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">Can I get a custom security plan for my business or event?</button>
+                <div class="faq-answer">Absolutely! We work with you to assess your needs and create a tailored security solution for your property or event.</div>
+            </div>
+        @endif
     </div>
 </div>
 

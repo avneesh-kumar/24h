@@ -13,7 +13,7 @@
     <div class="areas-grid">
         @if($areas->count() > 0)
             @foreach($areas as $area)
-                <a href="{{ url('/areas/' . $area->slug) }}" class="area-card">
+                <a href="{{ $area->custom_url ?: url('/areas/' . $area->slug) }}" class="area-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="{{ asset('storage/' . $area->thumbnail) }}" alt="{{ $area->title }}">

@@ -61,6 +61,38 @@
                 </div>
             </div>
 
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Map to Areas (optional)</label>
+                <div class="border border-red-200 rounded-lg p-4 max-h-60 overflow-y-auto space-y-2">
+                    @forelse($areas as $area)
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" name="area_ids[]" value="{{ $area->id }}"
+                                {{ in_array($area->id, old('area_ids', $selectedAreaIds)) ? 'checked' : '' }}
+                                class="rounded border-red-300 text-red-600 focus:ring-red-500">
+                            <span class="text-sm text-gray-700">{{ $area->title }}</span>
+                        </label>
+                    @empty
+                        <p class="text-sm text-gray-500">No areas available.</p>
+                    @endforelse
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Map to Services (optional)</label>
+                <div class="border border-red-200 rounded-lg p-4 max-h-60 overflow-y-auto space-y-2">
+                    @forelse($services as $service)
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" name="service_ids[]" value="{{ $service->id }}"
+                                {{ in_array($service->id, old('service_ids', $selectedServiceIds)) ? 'checked' : '' }}
+                                class="rounded border-red-300 text-red-600 focus:ring-red-500">
+                            <span class="text-sm text-gray-700">{{ $service->title }}</span>
+                        </label>
+                    @empty
+                        <p class="text-sm text-gray-500">No services available.</p>
+                    @endforelse
+                </div>
+            </div>
+
             <div class="flex items-center gap-4">
                 <button type="submit" class="inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200">
                     Update FAQ

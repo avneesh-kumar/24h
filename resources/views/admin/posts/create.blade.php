@@ -49,8 +49,16 @@
 					</select>
 				</div>
 				<div>
-					<label class="block text-sm font-semibold text-gray-700 mb-2" for="published_at">Publish At</label>
+					<label class="block text-sm font-semibold text-gray-700 mb-2" for="published_at">
+						Publish At
+						<span id="publish-at-required" class="text-red-600 hidden">*</span>
+					</label>
 					<input type="datetime-local" name="published_at" id="published_at" value="{{ old('published_at') }}" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500">
+					<p class="text-xs text-gray-500 mt-1">
+						<span id="publish-help-published">Leave empty to publish now</span>
+						<span id="publish-help-scheduled" class="hidden text-red-600">Required: Set future date/time</span>
+						<span class="block mt-1">Time in {{ app_timezone() }} timezone</span>
+					</p>
 				</div>
 			</div>
 
@@ -113,6 +121,30 @@
             }
         });
 
+        // Handle status change to show/hide required indicator
+        const statusSelect = document.getElementById('status');
+        const publishAtInput = document.getElementById('published_at');
+        const publishAtRequired = document.getElementById('publish-at-required');
+        const publishHelpPublished = document.getElementById('publish-help-published');
+        const publishHelpScheduled = document.getElementById('publish-help-scheduled');
+
+        function updatePublishAtRequirement() {
+            if (statusSelect.value === 'scheduled') {
+                publishAtRequired.classList.remove('hidden');
+                publishAtInput.setAttribute('required', 'required');
+                publishHelpPublished.classList.add('hidden');
+                publishHelpScheduled.classList.remove('hidden');
+            } else {
+                publishAtRequired.classList.add('hidden');
+                publishAtInput.removeAttribute('required');
+                publishHelpPublished.classList.remove('hidden');
+                publishHelpScheduled.classList.add('hidden');
+            }
+        }
+
+        statusSelect.addEventListener('change', updatePublishAtRequirement);
+        updatePublishAtRequirement(); // Run on page load
+
         // Add form validation
         const form = document.querySelector('form');
         form.addEventListener('submit', function(e) {
@@ -122,6 +154,26 @@
                 alert('Please enter content for the post.');
                 contentEditor.focus();
                 return false;
+            }
+
+            // Validate scheduled posts have a publish date
+            if (statusSelect.value === 'scheduled' && !publishAtInput.value) {
+                e.preventDefault();
+                alert('Please select a publish date and time for scheduled posts.');
+                publishAtInput.focus();
+                return false;
+            }
+
+            // Validate scheduled date is in the future
+            if (statusSelect.value === 'scheduled' && publishAtInput.value) {
+                const selectedDate = new Date(publishAtInput.value);
+                const now = new Date();
+                if (selectedDate <= now) {
+                    e.preventDefault();
+                    alert('Scheduled publish time must be in the future.');
+                    publishAtInput.focus();
+                    return false;
+                }
             }
         });
     });

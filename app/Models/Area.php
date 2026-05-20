@@ -11,6 +11,7 @@ class Area extends Model
     protected $fillable = [
         'title',
         'slug',
+        'custom_url',
         'thumbnail',
         'banner',
         'banner_title',
@@ -37,6 +38,11 @@ class Area extends Model
     public function services(): HasMany
     {
         return $this->hasMany(Service::class);
+    }
+
+    public function faqs()
+    {
+        return $this->belongsToMany(Faq::class)->orderBy('sort_order')->orderBy('id');
     }
 
     public static function boot()

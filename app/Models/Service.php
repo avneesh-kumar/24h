@@ -39,6 +39,11 @@ class Service extends Model
         return $this->belongsTo(Area::class);
     }
 
+    public function faqs()
+    {
+        return $this->belongsToMany(Faq::class);
+    }
+
     protected static function boot()
     {
         parent::boot();

@@ -33,6 +33,7 @@ class AreaController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:areas,slug',
+            'custom_url' => 'nullable|url|max:500',
             'thumbnail' => 'nullable|image|max:2048',
             'banner' => 'nullable|image|max:4096',
             'banner_title' => 'nullable|string|max:255',
@@ -81,6 +82,7 @@ class AreaController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:areas,slug,' . $area->id,
+            'custom_url' => 'nullable|url|max:500',
             'thumbnail' => 'nullable|image|max:2048',
             'banner' => 'nullable|image|max:4096',
             'banner_title' => 'nullable|string|max:255',

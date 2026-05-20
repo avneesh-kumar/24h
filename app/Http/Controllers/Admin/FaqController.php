@@ -3,15 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Area;
 use App\Models\Faq;
 use App\Models\Post;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
     public function index()
     {
-        $all = Faq::with('posts')->orderBy('group_name')->orderBy('sort_order')->orderByDesc('id')->get();
+        $all = Faq::with(['posts', 'areas', 'services'])->orderBy('group_name')->orderBy('sort_order')->orderByDesc('id')->get();
         $grouped = $all->groupBy(fn($f) => $f->group_name ?: '');
         return view('admin.faqs.index', compact('grouped'));
     }
@@ -19,7 +21,7 @@ class FaqController extends Controller
     public function editGroup(string $group)
     {
         $groupName = $group === '__ungrouped__' ? null : $group;
-        $faqs = Faq::with('posts')
+        $faqs = Faq::with(['posts', 'areas', 'services'])
             ->where('group_name', $groupName)
             ->orderBy('sort_order')
             ->orderByDesc('id')
@@ -30,10 +32,14 @@ class FaqController extends Controller
         }
 
         $posts = Post::orderBy('title')->get(['id', 'title']);
-        // All FAQs in a group share the same post mapping — use first FAQ's posts as default
+        $areas = Area::orderBy('title')->get(['id', 'title']);
+        $services = Service::orderBy('title')->get(['id', 'title']);
+        // All FAQs in a group share the same post/area/service mapping — use first FAQ's mappings as default
         $selectedPostIds = $faqs->first()->posts()->pluck('posts.id')->toArray();
+        $selectedAreaIds = $faqs->first()->areas()->pluck('areas.id')->toArray();
+        $selectedServiceIds = $faqs->first()->services()->pluck('services.id')->toArray();
 
-        return view('admin.faqs.edit-group', compact('faqs', 'groupName', 'group', 'posts', 'selectedPostIds'));
+        return view('admin.faqs.edit-group', compact('faqs', 'groupName', 'group', 'posts', 'areas', 'services', 'selectedPostIds', 'selectedAreaIds', 'selectedServiceIds'));
     }
 
     public function updateGroup(Request $request, string $group)
@@ -47,10 +53,16 @@ class FaqController extends Controller
             'faqs.*.sort_order'  => 'nullable|integer|min:0',
             'post_ids'           => 'nullable|array',
             'post_ids.*'         => 'exists:posts,id',
+            'area_ids'           => 'nullable|array',
+            'area_ids.*'         => 'exists:areas,id',
+            'service_ids'        => 'nullable|array',
+            'service_ids.*'      => 'exists:services,id',
         ]);
 
         $newGroupName = $validated['group_name'] ?? null;
         $postIds      = $validated['post_ids'] ?? [];
+        $areaIds      = $validated['area_ids'] ?? [];
+        $serviceIds   = $validated['service_ids'] ?? [];
 
         foreach ($validated['faqs'] as $entry) {
             $faq = Faq::find($entry['id']);
@@ -61,6 +73,8 @@ class FaqController extends Controller
                 'group_name' => $newGroupName,
             ]);
             $faq->posts()->sync($postIds);
+            $faq->areas()->sync($areaIds);
+            $faq->services()->sync($serviceIds);
         }
 
         return redirect()->route('admin.faqs.index')->with('status', 'Group updated.');
@@ -76,7 +90,9 @@ class FaqController extends Controller
     public function create()
     {
         $posts = Post::orderBy('title')->get(['id', 'title']);
-        return view('admin.faqs.create', compact('posts'));
+        $areas = Area::orderBy('title')->get(['id', 'title']);
+        $services = Service::orderBy('title')->get(['id', 'title']);
+        return view('admin.faqs.create', compact('posts', 'areas', 'services'));
     }
 
     public function store(Request $request)
@@ -89,10 +105,16 @@ class FaqController extends Controller
             'faqs.*.sort_order'  => 'nullable|integer|min:0',
             'post_ids'           => 'nullable|array',
             'post_ids.*'         => 'exists:posts,id',
+            'area_ids'           => 'nullable|array',
+            'area_ids.*'         => 'exists:areas,id',
+            'service_ids'        => 'nullable|array',
+            'service_ids.*'      => 'exists:services,id',
         ]);
 
-        $postIds   = $validated['post_ids'] ?? [];
-        $groupName = $validated['group_name'] ?? null;
+        $postIds    = $validated['post_ids'] ?? [];
+        $areaIds    = $validated['area_ids'] ?? [];
+        $serviceIds = $validated['service_ids'] ?? [];
+        $groupName  = $validated['group_name'] ?? null;
 
         foreach ($validated['faqs'] as $entry) {
             $faq = Faq::create([
@@ -102,6 +124,8 @@ class FaqController extends Controller
                 'group_name' => $groupName,
             ]);
             $faq->posts()->sync($postIds);
+            $faq->areas()->sync($areaIds);
+            $faq->services()->sync($serviceIds);
         }
 
         $count = count($validated['faqs']);
@@ -111,8 +135,12 @@ class FaqController extends Controller
     public function edit(Faq $faq)
     {
         $posts = Post::orderBy('title')->get(['id', 'title']);
+        $areas = Area::orderBy('title')->get(['id', 'title']);
+        $services = Service::orderBy('title')->get(['id', 'title']);
         $selectedPostIds = $faq->posts()->pluck('posts.id')->toArray();
-        return view('admin.faqs.edit', compact('faq', 'posts', 'selectedPostIds'));
+        $selectedAreaIds = $faq->areas()->pluck('areas.id')->toArray();
+        $selectedServiceIds = $faq->services()->pluck('services.id')->toArray();
+        return view('admin.faqs.edit', compact('faq', 'posts', 'areas', 'services', 'selectedPostIds', 'selectedAreaIds', 'selectedServiceIds'));
     }
 
     public function update(Request $request, Faq $faq)
@@ -124,6 +152,10 @@ class FaqController extends Controller
             'group_name' => 'nullable|string|max:200',
             'post_ids'   => 'nullable|array',
             'post_ids.*' => 'exists:posts,id',
+            'area_ids'   => 'nullable|array',
+            'area_ids.*' => 'exists:areas,id',
+            'service_ids'   => 'nullable|array',
+            'service_ids.*' => 'exists:services,id',
         ]);
 
         $faq->update([
@@ -134,6 +166,8 @@ class FaqController extends Controller
         ]);
 
         $faq->posts()->sync($validated['post_ids'] ?? []);
+        $faq->areas()->sync($validated['area_ids'] ?? []);
+        $faq->services()->sync($validated['service_ids'] ?? []);
 
         return back()->with('status', 'FAQ updated.');
     }
