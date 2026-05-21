@@ -24,11 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu toggle
     const mobileMenu = document.querySelector('.mobile-menu');
     const navLinks = document.querySelector('.nav-links');
-    
-    mobileMenu.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-    });
+
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+    }
 });
 
 // Smooth scroll for navigation links
@@ -39,14 +41,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             behavior: 'smooth'
         });
     });
-});
-
-// Form Submission
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Add your form submission logic here
-    alert('Thank you for your message. We will get back to you soon!');
-    this.reset();
 });
 
 // Scroll Animation
