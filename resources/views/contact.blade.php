@@ -28,7 +28,14 @@
 
                 <p>
                     <i class="fas fa-map-marker-alt"></i>
-                    23241 Ventura Blvd., Suite 219, Woodland Hills, CA 91364
+                    <a 
+            href="https://maps.app.goo.gl/okL2XxfnXTuy6Lks6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:underline"
+        >
+            23241 Ventura Blvd., Suite 219 Woodland Hills CA 91364
+        </a>
                 </p>
             </div>
             <div class="contact-map-box">
@@ -40,11 +47,6 @@
                     allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
 
-                <div style="margin-top:10px;">
-                    <a href="https://maps.app.goo.gl/okL2XxfnXTuy6Lks6" target="_blank" rel="noopener noreferrer">
-                        Open in Google Maps
-                    </a>
-                </div>
 
             </div>
         </div>
