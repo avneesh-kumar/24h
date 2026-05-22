@@ -60,15 +60,6 @@ class AppServiceProvider extends ServiceProvider
             'mail.mailers.smtp.password' => $email->smtpPassword(),
         ]);
 
-        \Log::info('Email settings applied: ', [
-            'from_name' => $email->fromName(),
-            'from_address' => $email->fromAddress(),
-            'smtp_host' => $email->smtpHost(),
-            'smtp_port' => $email->smtpPort(),
-            'smtp_encryption' => $email->smtpEncryption(),
-            'smtp_username' => $email->smtpUsername() ? '***' : null,
-            'smtp_password' => $email->smtpPassword() ? '***' : null,
-        ]);
         // Logging settings
         $logging = app(LoggingSettingsService::class);
         config(['logging.channels.stack.level' => $logging->logLevel()]);
