@@ -56,7 +56,7 @@
     top: 0; right: 0;
     width: 80vw; max-width: 340px;
     height: 100vh;
-    background: #fff;
+    background: #1a1a1a;
     box-shadow: -2px 0 24px rgba(0,0,0,0.18);
     z-index: 2000;
     transform: translateX(100%);
@@ -91,6 +91,23 @@
 }
 .mobile-nav-links a:hover {
     color: var(--secondary-color);
+}
+.header {
+    background: #000;
+    width: 100%;
+}
+.navbar {
+    background: #000;
+}
+.nav-links a,
+.mobile-nav-links a,
+.mobile-menu,
+.mobile-nav-close {
+    color: #fff !important;
+}
+.nav-links a:hover,
+.mobile-nav-links a:hover {
+    color: #f4341b !important;
 }
 </style>
 <script>

@@ -50,6 +50,7 @@ class AppServiceProvider extends ServiceProvider
         // Email settings
         $email = app(EmailSettingsService::class);
         config([
+            'mail.default' => 'smtp',
             'mail.from.name' => $email->fromName(),
             'mail.from.address' => $email->fromAddress(),
             'mail.mailers.smtp.host' => $email->smtpHost(),

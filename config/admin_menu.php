@@ -31,6 +31,16 @@ return [
         'route' => 'admin.posts.index',
     ],
     [
+        'label' => 'Quote Requests',
+        'icon' => 'fa-envelope-open-text',
+        'route' => 'admin.quote-requests.index',
+    ],
+    [
+        'label' => 'Contacts',
+        'icon' => 'fa-address-book',
+        'route' => 'admin.contacts.index',
+    ],
+    [
         'label' => 'FAQ',
         'icon' => 'fa-circle-question',
         'route' => 'admin.faqs.index',
