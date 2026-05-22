@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactReceived;
+use App\Mail\QuoteRequestReceived;
 use App\Models\ContactMessage;
+use App\Models\QuoteRequest;
 
 class ContactController extends Controller
 {
@@ -48,7 +50,13 @@ class ContactController extends Controller
             'referral' => 'required|string|max:255',
         ]);
 
-        \App\Models\QuoteRequest::create($validated);
+        $quoteRequest = QuoteRequest::create($validated);
+
+        // Queue the notification email to site owner
+        $to = config('mail.from.address') ?: env('MAIL_FROM_ADDRESS');
+        if ($to) {
+            Mail::to($to)->queue(new QuoteRequestReceived($quoteRequest));
+        }
 
         return back()->with('status', 'Your quote request has been submitted successfully.');
     }
