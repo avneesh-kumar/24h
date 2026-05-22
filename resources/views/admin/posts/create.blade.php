@@ -84,7 +84,7 @@
 				</div>
 				<div class="mt-6">
 					<label class="block text-sm font-semibold text-gray-700 mb-2" for="schema_markup">Schema Markup (JSON-LD)</label>
-					<textarea name="schema_markup" id="schema_markup" rows="8" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 font-mono text-sm" placeholder='{"@context":"https://schema.org","@type":"Article","headline":"","description":""}'>{{ old('schema_markup') }}</textarea>
+					<textarea name="schema_markup" id="schema_markup" rows="8" class="bg-white border border-red-200 text-gray-900 rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-red-500 focus:border-red-500 font-mono text-sm" placeholder='{"@@context":"https://schema.org","@@type":"Article","headline":"","description":""}'>{{ old('schema_markup') }}</textarea>
 					<p class="text-xs text-gray-500 mt-1">Paste your JSON-LD structured data here. Leave empty to skip.</p>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
 		</form>
 	</div>
 </div>
-<script src="https://cdn.tiny.cloud/1/hxk3a9xk1ec56yqatwnzxjwd07736yo1b9mu8gtd9z6yrikb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/1k9jo6l0aeepksm6wmiq90pd8peelx2bp1lwmw78hiddx18f/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Initialize TinyMCE with proper configuration

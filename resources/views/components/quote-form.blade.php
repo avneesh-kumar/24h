@@ -3,7 +3,7 @@
         <div class="quote-modal-header-bar"></div>
         <button class="quote-modal-close" onclick="document.getElementById('quote-modal').style.display='none';">&times;</button>
         <h2 class="quote-modal-title">Request A Quote</h2>
-        <form method="POST" action="#" class="quote-form">
+        <form method="POST" action="{{ route('quote.submit') }}" class="quote-form">
             @csrf
             <div class="quote-form-row">
                 <div class="form-group">

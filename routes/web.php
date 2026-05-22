@@ -34,7 +34,10 @@ Route::get('/industries/{slug}', [App\Http\Controllers\IndustryController::class
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
+Route::post('/quote', [ContactController::class, 'submitQuote'])->name('quote.submit');
+
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('industries', App\Http\Controllers\Admin\IndustryController::class);
     Route::resource('testimonials', App\Http\Controllers\Admin\TestimonialController::class);
@@ -50,6 +53,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 });
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/send', [ContactController::class, 'sendMessage'])->name('contact.send');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
