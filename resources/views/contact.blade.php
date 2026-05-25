@@ -27,7 +27,9 @@
                 </p>
 
                 <p>
-                    <i class="fas fa-map-marker-alt"></i>
+                   
+
+                 <i class="fas fa-map-marker-alt"></i>
                     <a 
             href="https://maps.app.goo.gl/okL2XxfnXTuy6Lks6"
             target="_blank"
