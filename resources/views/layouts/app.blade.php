@@ -31,9 +31,8 @@
     @if($seo_canonical_url_mode === 'auto')
         <link rel="canonical" href="@yield('canonical_url', url()->current())">
     @endif
-
-    {{-- Structured Data --}}
-    <script type="application/ld+json">
+{{-- Structured Data --}}
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
@@ -57,7 +56,7 @@
         }
     </script>
 
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
 "@context": "https://schema.org/",
 "@type": "WebSite",
@@ -72,7 +71,7 @@
 </script>
 
 
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
 "@context": "https://schema.org",
 "@type": "Organization",
