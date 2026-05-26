@@ -121,7 +121,7 @@
     @if(!empty($branding_favicon))
         <link rel="icon" type="image/png" href="{{ asset('storage/' . $branding_favicon) }}" />
     @else
-        <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/png" href="{{ asset('logo.png') }}" />
     @endif
     {{-- Primary/Secondary color as CSS vars --}}
     <style>
