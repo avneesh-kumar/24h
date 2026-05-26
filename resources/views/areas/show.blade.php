@@ -107,25 +107,18 @@ function toggleFaq(btn) {
 <style>
 .service-area-banner {
     position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     overflow: hidden;
-    height: 450px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 0rem;
+    display: block;
+    background: #000;
 }
 .service-area-banner-img {
-    width: 100vw;
-    height: 450px;
-    object-fit: fill;
-    object-position: center;
+    width: 100%;
+    height:100%;
     display: block;
+    object-fit: contain;
+    object-position: center;
     filter: brightness(0.7);
 }
 .service-area-banner-title {
@@ -140,14 +133,31 @@ function toggleFaq(btn) {
     text-align: center;
     padding: 0 2rem;
     letter-spacing: 1px;
+    width: 100%;
+    max-width: 960px;
 }
 .service-area-banner-title h1 {
+    margin: 0;
     font-size: inherit;
     font-weight: inherit;
     text-shadow: inherit;
     text-align: inherit;
     padding: inherit;
     letter-spacing: inherit;
+}
+
+@media (max-width: 768px) {
+    .service-area-banner-title {
+        font-size: 1.6rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-area-banner-title {
+        font-size: 1.3rem;
+        padding: 0 0.75rem;
+    }
 }
 
 .service-area-desc-container {
