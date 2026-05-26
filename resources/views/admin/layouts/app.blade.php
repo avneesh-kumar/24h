@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="icon" href="{{ asset('logo.png') }}" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" />
     @vite(['resources/css/admin.css', 'resources/js/admin.js'])
 </head>
 <body class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
