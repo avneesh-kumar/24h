@@ -106,7 +106,7 @@
 		</form>
 	</div>
 </div>
-<script src="https://cdn.tiny.cloud/1/1k9jo6l0aeepksm6wmiq90pd8peelx2bp1lwmw78hiddx18f/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/g6r56tncmnbo4haibzen0nvnz6bsu6ruxxa328uan6ld24c2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Initialize TinyMCE with proper configuration
