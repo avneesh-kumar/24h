@@ -102,7 +102,7 @@
     </div>
 </div>
 
-<script src="https://cdn.tiny.cloud/1/hxk3a9xk1ec56yqatwnzxjwd07736yo1b9mu8gtd9z6yrikb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/g6r56tncmnbo4haibzen0nvnz6bsu6ruxxa328uan6ld24c2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         tinymce.init({
