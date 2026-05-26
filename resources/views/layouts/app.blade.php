@@ -33,28 +33,28 @@
     @endif
 {{-- Structured Data --}}
 <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "READY 24h Security Inc.",
-        "image": "https://r24hs.com/logo.png",
-        "@id": "",
-        "url": "https://r24hs.com/",
-        "telephone": "800-613-5903",
-        "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "23241 Ventura Blvd., Suite 219 Woodland Hills",
-        "addressLocality": "California, Los Angeles, Orange County, Riverside County, San Diego County, Ventura County",
-        "postalCode": "91364",
-        "addressCountry": "US"
-        },
-        "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 34.16222570000001,
-        "longitude": -118.6322503
-        }
-        }
-    </script>
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "READY 24h Security Inc.",
+"image": "https://r24hs.com/logo.png",
+"@id": "",
+"url": "https://r24hs.com/",
+"telephone": "800-613-5903",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "23241 Ventura Blvd., Suite 219 Woodland Hills",
+"addressLocality": "California, Los Angeles, Orange County, Riverside County, San Diego County, Ventura County",
+"postalCode": "91364",
+"addressCountry": "US"
+},
+"geo": {
+"@type": "GeoCoordinates",
+"latitude": 34.16222570000001,
+"longitude": -118.6322503
+}
+}
+</script>
 
 <script type="application/ld+json">
 {
@@ -69,7 +69,6 @@
 }
 }
 </script>
-
 
 <script type="application/ld+json">
 {
@@ -173,13 +172,6 @@
         }
     </style>
     {{-- Preload Critical Resources --}}
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        as="style">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{-- Analytics/Pixel/Custom Scripts --}}
     @if($integration_google_analytics_id)

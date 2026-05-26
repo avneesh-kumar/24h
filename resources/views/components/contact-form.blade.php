@@ -1,7 +1,15 @@
 <section id="contact" class="contact">
     <div class="contact-container">
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6602.758040352144!2d-118.63224999999998!3d34.162226!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c29e637e39ae45%3A0x3a42dcceae8887f5!2s23241%20Ventura%20Blvd%20%23219%2C%20Woodland%20Hills%2C%20CA%2091364%2C%20USA!5e0!3m2!1sen!2sin!4v1747662269616!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.724548542113!2d-118.6322503!3d34.1622257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c29f6708fe309b%3A0x15fcf097fb99a180!2sREADY%2024h%20Security%20Inc.!5e0!3m2!1sen!2sus!4v1747710000000"
+    width="100%"
+    height="400"
+    style="border:0; border-radius:12px; box-shadow:0 2px 16px rgba(185,28,28,0.07); margin-top:18px;"
+    allowfullscreen
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
         </div>
         <div class="contact-content">
             <div class="contact-info">
