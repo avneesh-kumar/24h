@@ -15,6 +15,7 @@ class Area extends Model
         'thumbnail',
         'banner',
         'banner_title',
+        'about_area',
         'description',
         'meta_title',
         'meta_description',

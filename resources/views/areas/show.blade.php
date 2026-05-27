@@ -31,7 +31,6 @@
 
 <!-- Description Section -->
 <div class="service-area-desc-container">
-    <div class="service-area-desc-header">Why Choose Ready 24h Security in {{ $area->title }}?</div>
     <div class="service-area-desc-html">
         {!! $area->description !!}
     </div>
