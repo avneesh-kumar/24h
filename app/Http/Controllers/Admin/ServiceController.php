@@ -25,7 +25,7 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'thumbnail' => 'nullable|image',
             'banner' => 'nullable|image',
-            'banner_title' => 'nullable|string|max:255',
+            'banner_title' => 'nullable|string|max:500',
             'description' => 'nullable|string',
             'meta_keywords' => 'nullable|string',
             'canonical_url' => 'nullable|url',
