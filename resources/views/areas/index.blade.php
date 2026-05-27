@@ -24,7 +24,7 @@
                         <div class="flip-card-back">
                             <div class="flip-title">About this Area</div>
                             <div class="flip-desc">
-                                Most Security Services in {{ $area->title }} are available 24/7, ensuring your safety and peace of mind at all times.
+                                {{ $area->about_area ?: "Most Security Services in {$area->title} are available 24/7, ensuring your safety and peace of mind at all times." }}
                             </div>
                         </div>
                     </div>
@@ -140,9 +140,24 @@
             border-bottom: 2px solid rgba(255,255,255,1);
         }
         .flip-desc {
-            font-size: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
             text-align: center;
-            opacity: 0.92;
+            opacity: 0.95;
+            width: 100%;
+            max-height: 180px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 4px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        .flip-desc::-webkit-scrollbar {
+            width: 4px;
+        }
+        .flip-desc::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
         }
         .view-all-button {
             /* background-color: #dc2626; */
