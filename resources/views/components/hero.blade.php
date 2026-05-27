@@ -5,8 +5,12 @@
     </div>
     <div class="hero-content">
         <span class="hero-subtitle">Welcome to READY 24h Security</span>
-        <h1>Professional Security Solutions for Your Peace of Mind</h1>
-        <p>Trusted security services with over 50 years of experience in protecting businesses and individuals across the state, we have established ourselves as one of the best security companies in California. Our expert team ensures your safety 24/7.</p>
+        <h1>California Security Guard Services You Can Rely On</h1>
+        <p>Finding a reliable security guard company near me usually starts after something has
+already happened, whether it’s a break-in, repeated trespassing, or employees feeling
+uneasy after hours. READY 24h Security operates as a California security company focused
+on visible deterrence, disciplined patrol routines, and trained officers who understand
+commercial property security.</p>
         <div class="hero-features">
             <div class="feature">
                 <i class="fas fa-shield-alt" aria-hidden="true"></i>
