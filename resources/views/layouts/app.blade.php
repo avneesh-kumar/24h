@@ -102,7 +102,9 @@
         @include('layouts.header')
     </div>
 
-    @yield('content')
+    <main id="main-content">
+        @yield('content')
+    </main>
 
     @include('layouts.footer')
 
@@ -123,9 +125,10 @@
 
     <script id="analytics-config" type="application/json">
         {!! json_encode([
-            'gaId' => $integration_google_analytics_id ?: 'G-K3JCGC63K6',
-            'fbPixelId' => $integration_facebook_pixel_id,
-            'clarityId' => 'sq230eue6x',
+            'gtmId' => $integration_google_tag_manager_id ?: null,
+            'gaId' => $integration_google_tag_manager_id ? null : ($integration_google_analytics_id ?: null),
+            'fbPixelId' => $integration_facebook_pixel_id ?: null,
+            'clarityId' => $integration_google_tag_manager_id ? null : 'sq230eue6x',
             'consentRequired' => (bool) $legal_cookie_consent_enabled,
             'hasConsent' => isset($_COOKIE['cookie_consent']),
         ]) !!}

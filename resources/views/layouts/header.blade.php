@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="logo">
             <a href="/">
-                <img src="{{ $site_logo ? asset('storage/' . $site_logo) : asset('logo.png') }}" alt="READY 24h Security Logo">
+                <img src="{{ $site_logo ? asset('storage/' . $site_logo) : asset('logo.png') }}" alt="READY 24h Security Logo" width="82" height="80">
             </a>
         </div>
         <div class="nav-links" id="main-nav-links">
@@ -22,7 +22,7 @@
         </div>
     </nav>
     <div id="mobile-nav-panel" class="mobile-nav-panel">
-        <button type="button" class="mobile-nav-close" onclick="toggleMobileNav()"><i class="fas fa-times"></i></button>
+        <button type="button" class="mobile-nav-close" aria-label="Close menu" onclick="toggleMobileNav()"><i class="fas fa-times"></i></button>
         <nav class="mobile-nav-links">
             <a href="/">Home</a>
             <a href="{{ route('about') }}">About</a>

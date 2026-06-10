@@ -27,7 +27,7 @@
         @foreach($services as $service)
         <a href="{{ route('services.show', $service->slug) }}" class="service-card service-link">
             @if($service->thumbnail)
-                <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->title }}" class="service-thumb">
+                <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->title }}" class="service-thumb" loading="lazy" width="400" height="200">
             @endif
             <h3>{{ $service->title }}</h3>
             <p>{!! Str::limit(strip_tags($service->description), 100) !!}</p>

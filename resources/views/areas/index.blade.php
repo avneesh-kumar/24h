@@ -16,7 +16,7 @@
                 <a href="{{ $area->custom_url ?: url('/areas/' . $area->slug) }}" class="area-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="{{ asset('storage/' . $area->thumbnail) }}" alt="{{ $area->title }}">
+                            <img src="{{ asset('storage/' . $area->thumbnail) }}" alt="{{ $area->title }}" loading="lazy" width="400" height="300">
                             <div class="area-title-overlay">
                                 <h3>{{ $area->title }}</h3>
                             </div>

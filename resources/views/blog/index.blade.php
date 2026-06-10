@@ -55,7 +55,7 @@
 					@if($post->featured_image)
 						<div style="position: relative; overflow: hidden;">
 							<a href="{{ route('blog.show', $post->slug) }}">
-								<img src="{{ asset('storage/'.$post->featured_image) }}" alt="{{ $post->title }}" style="width: 100%; height: 220px; object-fit: cover; transition: transform 0.3s ease;">
+								<img src="{{ asset('storage/'.$post->featured_image) }}" alt="{{ $post->title }}" loading="lazy" width="400" height="220" style="width: 100%; height: 220px; object-fit: cover; transition: transform 0.3s ease;">
 							</a>
 							<div style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.8rem; border: 1px solid #374151;">{{ optional($post->published_at)->format('M d') }}</div>
 						</div>

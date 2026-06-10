@@ -14,6 +14,9 @@
                             <img
                                 src="{{ asset('storage/' . $area->thumbnail) }}"
                                 alt="{{ $area->title }}"
+                                loading="lazy"
+                                width="400"
+                                height="300"
                             >
 
                             <div class="area-title-overlay">

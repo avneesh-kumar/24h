@@ -598,6 +598,41 @@ body {
     opacity: 0.8;
 }
 
+#why-us .section-header,
+#why-us .section-header h2 {
+    color: #343a40;
+}
+
+#why-us .section-header p {
+    color: #495057;
+    opacity: 1;
+}
+
+#service-areas .section-header p {
+    color: #495057;
+}
+
+.testimonials-section .section-header p,
+.industries-section .section-header p {
+    color: #495057;
+}
+
+.industries-section .section-header h2 {
+    color: #1a1a1a;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Button Styles */
 .btn {
     padding: 0.8rem 1.5rem;
@@ -1625,10 +1660,12 @@ section {
     font-weight: bold;
 }
 
-.testimonials-section .author-info h4 {
+.testimonials-section .author-info h4,
+.testimonials-section .author-info .author-name {
     font-size: 1.1rem;
     color: #1a1a1a;
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .testimonials-section .author-info p {
