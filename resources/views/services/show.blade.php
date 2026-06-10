@@ -18,7 +18,7 @@
     <div class="service-area-banner">
         <img src="{{ asset('storage/' . $service->banner) }}" alt="{{ $service->title }} Banner" class="service-area-banner-img">
         <div class="service-area-banner-title">
-            <h1>{{ $service->banner_title ?? $service->title }}</h1>
+            <h1>{{ $service->title ?? $service->banner_title }}</h1>
         </div>
     </div>
 </div>

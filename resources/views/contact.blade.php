@@ -43,6 +43,7 @@
             <div class="contact-map-box">
 
                <iframe
+    title="Map showing READY 24h Security office location"
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.724548542113!2d-118.6322503!3d34.1622257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c29f6708fe309b%3A0x15fcf097fb99a180!2sREADY%2024h%20Security%20Inc.!5e0!3m2!1sen!2sus!4v1747710000000"
     width="100%"
     height="400"

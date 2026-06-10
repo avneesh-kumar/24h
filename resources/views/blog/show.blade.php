@@ -141,6 +141,9 @@
           <div style="position: relative; height: 140px; overflow: hidden; background: #f3f4f6; flex-shrink: 0;">
             <img src="{{ asset('storage/'.$relatedPost->featured_image) }}"
                  alt="{{ $relatedPost->title }}"
+                 loading="lazy"
+                 width="400"
+                 height="140"
                  style="width: 100%; height: 100%; object-fit: cover; display: block;">
             <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #991b1b;"></div>
           </div>

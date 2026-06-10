@@ -35,6 +35,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->ensureStorageDirectoriesExist();
+        $this->configureDebugbarForPublicSite();
+
         // Apply timezone from settings globally
         $generalSettings = app(GeneralSettingsService::class);
         $timezone = $generalSettings->getTimezone();
@@ -92,6 +95,7 @@ class AppServiceProvider extends ServiceProvider
                 'seo_meta_tags' => $seo->getMetaTags(),
                 // Integrations
                 'integration_google_analytics_id' => $integration->googleAnalyticsId(),
+                'integration_google_tag_manager_id' => $integration->googleTagManagerId(),
                 'integration_facebook_pixel_id' => $integration->facebookPixelId(),
                 // Advanced
                 'advanced_custom_head_html' => $advanced->getCustomHeadHtml(),
@@ -104,6 +108,48 @@ class AppServiceProvider extends ServiceProvider
                 // Footer services
                 'footer_services' => $footer_services,
             ]);
+        });
+    }
+
+    private function ensureStorageDirectoriesExist(): void
+    {
+        foreach ([
+            storage_path('framework/cache/data'),
+            storage_path('framework/sessions'),
+            storage_path('framework/views'),
+            storage_path('logs'),
+        ] as $directory) {
+            if (! is_dir($directory)) {
+                mkdir($directory, 0775, true);
+            }
+        }
+    }
+
+    /**
+     * Debugbar injects ~900 KiB of render-blocking CSS/JS. Keep it on admin only.
+     */
+    private function configureDebugbarForPublicSite(): void
+    {
+        if ($this->app->runningInConsole()) {
+            return;
+        }
+
+        $this->app->booted(function () {
+            if (! $this->app->bound('debugbar')) {
+                return;
+            }
+
+            $debugbar = $this->app->make('debugbar');
+
+            if (! $debugbar->isEnabled()) {
+                return;
+            }
+
+            $request = $this->app->make('request');
+
+            if (! $request->is('admin', 'admin/*', '_debugbar', '_debugbar/*')) {
+                $debugbar->disable();
+            }
         });
     }
 }

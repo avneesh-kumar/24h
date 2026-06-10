@@ -18,12 +18,12 @@
                     </div>
                     <div class="author">
                         @if($testimonial->image)
-                            <img src="{{ asset('storage/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" class="author-image">
+                            <img src="{{ asset('storage/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" class="author-image" loading="lazy" width="50" height="50">
                         @else
                             <div class="author-initial">{{ substr($testimonial->name, 0, 1) }}</div>
                         @endif
                         <div class="author-info">
-                            <h4>{{ $testimonial->name }}</h4>
+                            <p class="author-name">{{ $testimonial->name }}</p>
                             <p>{{ $testimonial->position }}</p>
                             <p class="company">{{ $testimonial->company }}</p>
                         </div>

@@ -1,89 +1,96 @@
 import './bootstrap';
 
-// function loadScript(src) {
-//     return new Promise((resolve, reject) => {
-//         const script = document.createElement('script');
-//         script.src = src;
-//         script.async = true;
-//         script.onload = resolve;
-//         script.onerror = reject;
-//         document.body.appendChild(script);
-//     });
-// }
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+    });
+}
 
-// let analyticsLoaded = false;
+let analyticsLoaded = false;
 
-// function loadAnalytics() {
-//     if (analyticsLoaded) return;
-//     const configEl = document.getElementById('analytics-config');
-//     if (!configEl) return;
+function loadAnalytics() {
+    if (analyticsLoaded) return;
+    const configEl = document.getElementById('analytics-config');
+    if (!configEl) return;
 
-//     let config;
-//     try {
-//         config = JSON.parse(configEl.textContent);
-//     } catch {
-//         return;
-//     }
+    let config;
+    try {
+        config = JSON.parse(configEl.textContent);
+    } catch {
+        return;
+    }
 
-//     analyticsLoaded = true;
+    const hasTracking = config.gtmId || config.gaId || config.clarityId || config.fbPixelId;
+    if (!hasTracking) return;
 
-//     if (config.gaId) {
-//         window.dataLayer = window.dataLayer || [];
-//         window.gtag = function () { window.dataLayer.push(arguments); };
-//         window.gtag('js', new Date());
-//         loadScript(`https://www.googletagmanager.com/gtag/js?id=${config.gaId}`).then(() => {
-//             window.gtag('config', config.gaId);
-//         });
-//     }
+    analyticsLoaded = true;
 
-//     if (config.clarityId) {
-//         (function (c, l, a, r, i) {
-//             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-//             const t = l.createElement(r);
-//             t.async = 1;
-//             t.src = 'https://www.clarity.ms/tag/' + i;
-//             const y = l.getElementsByTagName(r)[0];
-//             y.parentNode.insertBefore(t, y);
-//         })(window, document, 'clarity', 'script', config.clarityId);
-//     }
+    if (config.gtmId) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        loadScript(`https://www.googletagmanager.com/gtm.js?id=${config.gtmId}`);
+    } else if (config.gaId) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        loadScript(`https://www.googletagmanager.com/gtag/js?id=${config.gaId}`).then(() => {
+            window.gtag('config', config.gaId);
+        });
+    }
 
-//     if (config.fbPixelId) {
-//         !(function (f, b, e, v, n, t, s) {
-//             if (f.fbq) return;
-//             n = f.fbq = function () {
-//                 n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-//             };
-//             if (!f._fbq) f._fbq = n;
-//             n.push = n;
-//             n.loaded = !0;
-//             n.version = '2.0';
-//             n.queue = [];
-//             t = b.createElement(e);
-//             t.async = !0;
-//             t.src = v;
-//             s = b.getElementsByTagName(e)[0];
-//             s.parentNode.insertBefore(t, s);
-//         })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-//         window.fbq('init', config.fbPixelId);
-//         window.fbq('track', 'PageView');
-//     }
-// }
+    if (config.clarityId) {
+        (function (c, l, a, r, i) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+            const t = l.createElement(r);
+            t.async = 1;
+            t.src = 'https://www.clarity.ms/tag/' + i;
+            const y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', config.clarityId);
+    }
 
-// function initAnalytics() {
-//     const configEl = document.getElementById('analytics-config');
-//     if (!configEl) return;
+    if (config.fbPixelId) {
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', config.fbPixelId);
+        window.fbq('track', 'PageView');
+    }
+}
 
-//     let config;
-//     try {
-//         config = JSON.parse(configEl.textContent);
-//     } catch {
-//         return;
-//     }
+function initAnalytics() {
+    const configEl = document.getElementById('analytics-config');
+    if (!configEl) return;
 
-//     if (!config.consentRequired || config.hasConsent) {
-//         loadAnalytics();
-//     }
-// }
+    let config;
+    try {
+        config = JSON.parse(configEl.textContent);
+    } catch {
+        return;
+    }
+
+    if (!config.consentRequired || config.hasConsent) {
+        loadAnalytics();
+    }
+}
 
 function initCookieConsent() {
     const button = document.getElementById('cookie-consent-button');
@@ -210,6 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initTestimonialsSlider();
-    initCookieConsent();
-    initAnalytics();
+    // initCookieConsent();
+    // initAnalytics();
 });

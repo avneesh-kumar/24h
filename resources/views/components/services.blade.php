@@ -8,7 +8,7 @@
         <div class="service-card">
             @if($service->thumbnail)
                 <a href="{{ route('services.show', $service->slug) }}" >
-                    <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->title }}">
+                    <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->title }}" loading="lazy" width="400" height="200">
                 </a>
             @endif
             <i class="fas fa-shield-alt"></i>
