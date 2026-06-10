@@ -22,7 +22,7 @@
         </div>
     </nav>
     <div id="mobile-nav-panel" class="mobile-nav-panel">
-        <button class="mobile-nav-close" onclick="toggleMobileNav()"><i class="fas fa-times"></i></button>
+        <button type="button" class="mobile-nav-close" onclick="toggleMobileNav()"><i class="fas fa-times"></i></button>
         <nav class="mobile-nav-links">
             <a href="/">Home</a>
             <a href="{{ route('about') }}">About</a>
@@ -36,86 +36,3 @@
     </div>
 </header>
 @include('components.quote-form')
-<style>
-@media (max-width: 900px) {
-    .nav-links, .cta-buttons { display: none !important; }
-    .mobile-menu { display: block !important; }
-}
-@media (min-width: 901px) {
-    .mobile-menu, #mobile-nav-panel { display: none !important; }
-}
-.mobile-menu {
-    display: none;
-    cursor: pointer;
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-left: 1rem;
-}
-.mobile-nav-panel {
-    position: fixed;
-    top: 0; right: 0;
-    width: 80vw; max-width: 340px;
-    height: 100vh;
-    background: #1a1a1a;
-    box-shadow: -2px 0 24px rgba(0,0,0,0.18);
-    z-index: 2000;
-    transform: translateX(100%);
-    transition: transform 0.3s cubic-bezier(.4,2,.6,1);
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
-}
-.mobile-nav-panel.active {
-    transform: translateX(0);
-}
-.mobile-nav-close {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--secondary-color);
-    align-self: flex-end;
-    margin-bottom: 1.5rem;
-    cursor: pointer;
-}
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-.mobile-nav-links a {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-}
-.mobile-nav-links a:hover {
-    color: var(--secondary-color);
-}
-.header {
-    background: #000;
-    width: 100%;
-}
-.navbar {
-    background: #000;
-}
-.nav-links a,
-.mobile-nav-links a,
-.mobile-menu,
-.mobile-nav-close {
-    color: #fff !important;
-}
-.nav-links a:hover,
-.mobile-nav-links a:hover {
-    color: #f4341b !important;
-}
-</style>
-<script>
-function toggleMobileNav() {
-    const panel = document.getElementById('mobile-nav-panel');
-    panel.classList.toggle('active');
-}
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('mobile-menu-toggle').onclick = toggleMobileNav;
-});
-</script>

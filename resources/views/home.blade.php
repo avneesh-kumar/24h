@@ -9,11 +9,11 @@
         @include('components.area', ['areas' => $areas, 'showAll' => true])
     @endif
     @if($services->isNotEmpty())
-        @include('components.services', $services)
+        @include('components.services', ['services' => $services])
     @endif
     @include('components.industries')
     @include('components.cta')
-    @include('components.testimonials')
+    @include('components.testimonials', ['testimonials' => $testimonials])
 
     <section class="cta-section" style="background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://images.pexels.com/photos/247763/pexels-photo-247763.jpeg');">
         <div class="section-header" >
