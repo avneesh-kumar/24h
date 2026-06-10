@@ -36,7 +36,11 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-banner">
-            <img src="./images/banner01.jpg" alt="Professional Security Services" class="hero-image">
+            <picture>
+                <source type="image/avif" srcset="/public/images/optimized/banner01-1920.avif 1920w, /public/images/optimized/banner01-1280.avif 1280w, /public/images/optimized/banner01-800.avif 800w" sizes="(min-width:1200px) 1200px, 100vw">
+                <source type="image/webp" srcset="/public/images/optimized/banner01-1920.webp 1920w, /public/images/optimized/banner01-1280.webp 1280w, /public/images/optimized/banner01-800.webp 800w" sizes="(min-width:1200px) 1200px, 100vw">
+                <img src="/public/images/optimized/banner01-1200.jpg" alt="Professional Security Services" class="hero-image" loading="eager">
+            </picture>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">

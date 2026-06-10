@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use App\Console\Commands\UserCreate;
 use App\Console\Commands\UserPasswordUpdate;
@@ -72,7 +73,9 @@ class AppServiceProvider extends ServiceProvider
             $integration = app(IntegrationSettingsService::class);
             $advanced = app(AdvancedSettingsService::class);
             $legal = app(LegalSettingsService::class);
-            $footer_services = \App\Models\Service::where('active', true)->orderBy('order', 'asc')->limit(5)->get();
+            $footer_services = Cache::remember('footer_services', 3600, function () {
+                return \App\Models\Service::where('active', true)->orderBy('order', 'asc')->limit(5)->get();
+            });
             
             $view->with([
                 // General/Branding
