@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Area;
 use App\Models\Service;
-use Illuminate\Http\Request;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -12,10 +12,16 @@ class HomeController extends Controller
     {
         $areas = Area::where('active', true)
             ->orderBy('order', 'asc')
-            ->paginate(15);
+            ->take(15)
+            ->get();
         $services = Service::where('active', true)
-        ->orderBy('order', 'asc')
-        ->paginate(15);
-        return view('home', compact('areas', 'services'));
+            ->orderBy('order', 'asc')
+            ->take(8)
+            ->get();
+        $testimonials = Testimonial::where('active', true)
+            ->orderBy('order')
+            ->get();
+
+        return view('home', compact('areas', 'services', 'testimonials'));
     }
 }

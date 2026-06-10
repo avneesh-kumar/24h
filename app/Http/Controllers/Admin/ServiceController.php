@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Service;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ServiceController extends Controller
 {
@@ -44,6 +45,8 @@ class ServiceController extends Controller
         }
         $data['slug'] = \Str::slug($data['title']) . '-' . uniqid();
         Service::create($data);
+        Cache::forget('footer_services');
+
         return redirect()->route('admin.services.index')->with('status', 'Service created successfully!');
     }
 
@@ -77,12 +80,16 @@ class ServiceController extends Controller
             $data['banner'] = $request->file('banner')->store('services/banners', 'public');
         }
         $service->update($data);
+        Cache::forget('footer_services');
+
         return redirect()->route('admin.services.index')->with('status', 'Service updated successfully!');
     }
 
     public function destroy(Service $service)
     {
         $service->delete();
+        Cache::forget('footer_services');
+
         return redirect()->route('admin.services.index')->with('status', 'Service deleted successfully!');
     }
 }

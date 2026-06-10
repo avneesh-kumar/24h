@@ -273,8 +273,3 @@
     }
 }
 </style>
-<script>
-function openQuoteModal() {
-    document.getElementById('quote-modal').style.display = 'flex';
-}
-</script> 

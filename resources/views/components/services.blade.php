@@ -1,8 +1,3 @@
-@php
-use App\Models\Service;
-$services = Service::where('active', true)->orderBy('order')->take(8)->get();
-@endphp
-
 <section id="services" class="services">
     <div class="section-header">
         <h2 style="color:white">Our Security Services</h2>
@@ -21,7 +16,6 @@ $services = Service::where('active', true)->orderBy('order')->take(8)->get();
                 <h3 style="height: 50px;">{{ $service->title }}</h3>
             </a>
             <p>{{ $service->banner_title }}</p>
-            
         </div>
         @endforeach
     </div>

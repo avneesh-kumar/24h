@@ -16,6 +16,8 @@
     },
     "dependencies": {
         "flowbite": "^4.0.2",
+        "node-fetch": "^2.7.0",
+        "sharp": "^0.34.5",
         "toastr": "^2.1.4"
     }
 }
