@@ -22,6 +22,7 @@ class SettingSeeder extends Seeder
             ['key' => 'zip_code', 'value' => '', 'type' => 'string', 'group' => 'general', 'description' => 'ZIP/Postal Code'],
             ['key' => 'latitude', 'value' => '', 'type' => 'string', 'group' => 'general', 'description' => 'Latitude'],
             ['key' => 'longitude', 'value' => '', 'type' => 'string', 'group' => 'general', 'description' => 'Longitude'],
+            ['key' => 'footer_description', 'value' => '', 'type' => 'string', 'group' => 'general', 'description' => 'description'],
 
             // Caching
             ['key' => 'enable_full_page_cache', 'value' => '1', 'type' => 'bool', 'group' => 'caching', 'description' => 'Enable Full Page Cache'],
@@ -110,8 +111,18 @@ class SettingSeeder extends Seeder
             ['key' => 'cookie_consent_enabled', 'value' => '1', 'type' => 'bool', 'group' => 'legal', 'description' => 'Enable Cookie Consent'],
         ];
 
+
+
         foreach ($settings as $setting) {
-            Setting::updateOrCreate(['key' => $setting['key']], $setting);
+            Setting::firstOrCreate(
+                ['key' => $setting['key']],
+                [
+                    'value' => $setting['value'],
+                    'type' => $setting['type'],
+                    'group' => $setting['group'],
+                    'description' => $setting['description'],
+                ]
+            );
         }
     }
 }
