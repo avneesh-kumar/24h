@@ -1,6 +1,6 @@
 <section id="home" class="hero">
     <div class="hero-banner">
-        <img src="{{ asset('storage/media/banner01.jpg') }}" alt="Professional Security Services" class="hero-image" loading="eager" width="1920" height="1080" fetchpriority="high">
+        <img src="{{ asset('storage/media/banner.avif') }}" alt="Professional Security Services" class="hero-image" loading="eager" width="1920" height="1080" fetchpriority="high">
         <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
