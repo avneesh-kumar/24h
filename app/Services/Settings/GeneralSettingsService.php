@@ -93,4 +93,13 @@ class GeneralSettingsService extends BaseSettingsService
     {
         return $this->set('longitude', $longitude);
     }
+
+    public function setFooterDescription($string)
+    {
+        return $this->set('footer_description',$string);
+    }
+    public function getFooterDescription()
+    {
+        return $this->get('footer_description','');
+    }
 }

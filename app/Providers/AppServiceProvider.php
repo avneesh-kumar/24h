@@ -84,6 +84,7 @@ class AppServiceProvider extends ServiceProvider
                 // General/Branding
                 'general' => $general,
                 'site_logo' => $general->getLogoPath(),
+                'footer_description' => $general->getFooterDescription(),
                 'branding_favicon' => $branding->favicon(),
                 'branding_primary_color' => $branding->primaryColor(),
                 'branding_secondary_color' => $branding->secondaryColor(),
