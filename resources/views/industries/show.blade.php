@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $industry->title . ' | Ready 24h Security')
-@section('meta_description', Str::limit(strip_tags($industry->description), 160))
+@section('title', $industry->meta_title)
+@section('meta_description', $industry->meta_description )
 
 @section('content')
 <link rel="stylesheet" href="/css/area-detail.css">
