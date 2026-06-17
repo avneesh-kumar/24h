@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $industry->meta_title)
-@section('meta_description', $industry->meta_description )
+@section('title', $industry->meta_title ??  $industry->title)
+@section('meta_description', $industry->meta_description ?? null )
 
 @section('content')
 <link rel="stylesheet" href="/css/area-detail.css">
