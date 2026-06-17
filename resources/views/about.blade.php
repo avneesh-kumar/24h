@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="about-banner">
-    <div class="about-banner-title">About Us</div>
+   <h1 class="about-banner-title">About Us</h1>
 </div>
 <div class="about-main">
     <section class="about-section">
