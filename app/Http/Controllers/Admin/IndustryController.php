@@ -26,6 +26,10 @@ class IndustryController extends Controller
             'title' => 'required|max:255',
             'icon' => 'nullable|max:255',
             'description' => 'nullable',
+            'meta_keywords' => 'nullable|string',
+            'canonical_url' => 'nullable|url',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
             'order' => 'nullable|integer',
             'active' => 'boolean'
         ]);
@@ -50,6 +54,10 @@ class IndustryController extends Controller
             'title' => 'required|max:255',
             'icon' => 'nullable|max:255',
             'description' => 'nullable',
+            'meta_keywords' => 'nullable|string',
+            'canonical_url' => 'nullable|url',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
             'order' => 'nullable|integer',
             'active' => 'boolean'
         ]);

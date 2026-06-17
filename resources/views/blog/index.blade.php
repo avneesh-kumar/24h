@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Blog')
-@section('meta_description', 'Latest insights and updates from READY 24h Security.')
+@section('title', 'Security Blog | Security Tips, Trends & Industry Insights')
+@section('meta_description', 'Explore expert security tips, industry trends, patrol services, event security, fire watch, and business protection insights from READY 24h Security.')
 
 @section('content')
 <div class="blog-page">

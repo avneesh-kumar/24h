@@ -12,6 +12,10 @@ class Industry extends Model
         'slug',
         'icon',
         'description',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
+        'canonical_url',
         'order',
         'active',
     ];
