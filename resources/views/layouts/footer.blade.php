@@ -8,7 +8,7 @@
             </div>
             <p>{{ $footer_description  ?? "Professional security solutions for your peace of mind."}}</p>
             <div class="social-links">
-                <a href="https://www.facebook.com/people/READY-24h-Security-Inc/61579867050120" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/Ready24hsecurity"><i class="fab fa-facebook"></i></a>
                 <!--<a href="#"><i class="fab fa-twitter"></i></a>-->
                 <!--<a href="#"><i class="fab fa-linkedin"></i></a>-->
                 <a href="https://www.instagram.com/ready_24hsecurityinc/" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
