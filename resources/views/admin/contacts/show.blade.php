@@ -18,6 +18,9 @@
             @if($message->phone)
                 <p><strong>Phone:</strong> {{ $message->phone }}</p>
             @endif
+            @if($message->service)
+                <p><strong>Service:</strong> {{ $message->service }}</p>
+            @endif
             <p><strong>Received:</strong> {{ $message->created_at->format('Y-m-d H:i') }}</p>
             <hr>
             <div class="whitespace-pre-wrap">{{ $message->message }}</div>
