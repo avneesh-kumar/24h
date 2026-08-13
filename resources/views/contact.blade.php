@@ -2,6 +2,7 @@
 
 @section('title', 'Contact Us | ' . config('app.name'))
 @section('meta_description', 'Contact Ready 24h Security for professional security solutions. Get in touch for a free quote or more information.')
+@section('meta_keywords', 'Security guard services Los Angeles, Security services Riverside County, Security guard services Orange County, Security services San Diego County, Security guard services Ventura County, Security services California, Security company California')
 
 @section('content')
     <div class="contact-banner">

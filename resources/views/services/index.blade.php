@@ -3,6 +3,7 @@
 @section('title', 'Our Security Services')
 
 @section('meta_description', 'Explore our comprehensive security services tailored to your needs. From event security to mobile patrols, we have you covered.')
+@section('meta_keywords', 'security services California, security guard services California, security company California, professional security services, 24/7 security services, security guard company California, patrol security services, event security services, construction site security, residential security services')
 
 @section('content')
     <div class="services-page">
