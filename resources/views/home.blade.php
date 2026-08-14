@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $seo_meta_title)
+@section('meta_keywords', 'security guard company los angeles, california security company, los angeles security services, 24/7 security services, security guard patrol services, armed security service, construction security guards san jose, event security services, construction site security guards california, residential security ventura county')
 
 @section('content')
     @include('components.hero')

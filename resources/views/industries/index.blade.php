@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('meta_keywords', 'security services California, security guard services California, commercial security services, industrial security services, hospitality security services, healthcare security services, construction security services, residential security services, event security services, professional security guards California')
+
 @section('content')
 @if($industries->isNotEmpty())
 <section class="industries-section">
