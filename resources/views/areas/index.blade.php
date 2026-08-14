@@ -2,6 +2,7 @@
 
 @section('title', 'Areas We Serve')
 @section('meta_description', 'Explore the areas we serve with Ready 24h Security. Providing top-notch security services across California.')
+@section('meta_keywords', 'security services California, security guard services California, security company California, Los Angeles security services, Orange County security services, Riverside County security services, San Diego County security services, Ventura County security services, security guards California, 24/7 security services California')
 
 @section('content')
 @if($areas->isNotEmpty())

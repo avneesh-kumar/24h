@@ -2,6 +2,7 @@
 
 @section('title', $industry->meta_title ??  $industry->title)
 @section('meta_description', $industry->meta_description ?? null )
+@section('meta_keywords', $industry->meta_keywords ?? null )
 
 @section('content')
 <link rel="stylesheet" href="/css/area-detail.css">

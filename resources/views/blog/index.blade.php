@@ -2,6 +2,7 @@
 
 @section('title', 'Security Blog | Security Tips, Trends & Industry Insights')
 @section('meta_description', 'Explore expert security tips, industry trends, patrol services, event security, fire watch, and business protection insights from READY 24h Security.')
+@section('meta_keywords', 'security blog California, security industry insights California, security tips California, security services California, security guard services California, security services Los Angeles, security services Riverside County, security services Orange County, security services San Diego County, security services Ventura County')
 
 @section('content')
 <div class="blog-page">

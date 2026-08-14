@@ -7,9 +7,9 @@
     <title>@yield('title', $seo_meta_title)</title>
     <meta name="description" content="@yield('meta_description', $seo_meta_description)">
 
-    @if($seo_meta_keywords)
+    {{-- @if($seo_meta_keywords) --}}
         <meta name="keywords" content="@yield('meta_keywords', $seo_meta_keywords)">
-    @endif
+    {{-- @endif --}}
 
     {{-- Open Graph Tags --}}
     <meta property="og:title" content="@yield('title', $seo_meta_title)">
